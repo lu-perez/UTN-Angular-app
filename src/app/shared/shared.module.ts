@@ -13,6 +13,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   ],
   exports: [
     MaterialModule,
+    SpinnerComponent,
   ]
 })
 export class SharedModule { }
