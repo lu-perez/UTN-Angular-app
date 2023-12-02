@@ -32,7 +32,6 @@ export class AddGameComponent implements OnInit {
 
   onSubmit() {
     if (this.addGameForm.valid) {
-      console.log('Form submitted:', this.addGameForm.value);
       this.gamesService.addGame(this.addGameForm.value).subscribe();
     } else {
       console.error('Form is invalid');

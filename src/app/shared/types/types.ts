@@ -8,12 +8,18 @@ export type Game = {
   price: string;
 }
 
+export type NewGame = Omit<
+  Game,
+  'id'
+>
+
 export type DLC = Omit<
   Game,
   'cpuRequirements' | 'memoryRequirements' | 'storageRequirements' | 'genre'
 > & {
+  id: number;
   relatedGameId: number;
-};
+}
 
 export enum Role {
   User = 'User',
@@ -27,6 +33,16 @@ export type User = {
   password: string;
   role: Role;
 }
+
+export type LogInRequest = Omit<
+  User,
+  'id' | 'role'
+>
+
+export type SafeUser = Omit<
+  User,
+  'password'
+>
 
 export enum PaymentMethod {
   Cash = 'Cash',

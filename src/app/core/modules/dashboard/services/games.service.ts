@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game } from 'src/app/shared/types/types';
+import { Game, NewGame } from 'src/app/shared/types/types';
 
 @Injectable()
 export class GamesService {
@@ -19,7 +19,7 @@ export class GamesService {
     return this.http.get<Game[]>(url);
   }
 
-  addGame(data: Game): Observable<Game> {
+  addGame(data: NewGame): Observable<Game> {
     const url = `${this.apiURL}/games`;
     return this.http.post<Game>(url, data);
   }
