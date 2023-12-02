@@ -64,7 +64,7 @@ const routes: Routes = [
     component: GameDetailComponent,
     canActivate: [RoleGuard],
     data: {
-      roles: [Role.User, Role.Agent, Role.Agent]
+      roles: [Role.User, Role.Agent, Role.Admin]
     }
   },
 ];
