@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     if (this.logInForm.valid) {
       this.authService.logIn(this.logInForm.value).subscribe({
         complete: () => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/games']);
         },
         error: (err) => {
           console.error('Login failed:', err);

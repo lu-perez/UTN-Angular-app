@@ -7,7 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { GendersListComponent } from './components/pages/genres/genders-list/genders-list.component';
 import { AddGenderComponent } from './components/pages/genres/add-gender/add-gender.component';
 import { EditGenderComponent } from './components/pages/genres/edit-gender/edit-gender.component';
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from './components/dashboard.component';
 import { GamesListComponent } from './components/pages/games/games-list/games-list.component';
 import { GameDetailComponent } from './components/pages/games/game-detail/game-detail.component';
 import { EditGameComponent } from './components/pages/games/edit-game/edit-game.component';
