@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-add-game',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddGameComponent implements OnInit {
   addGameForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private gamesService: GamesService,
+  ) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -29,6 +33,7 @@ export class AddGameComponent implements OnInit {
   onSubmit() {
     if (this.addGameForm.valid) {
       console.log('Form submitted:', this.addGameForm.value);
+      this.gamesService.addGame(this.addGameForm.value).subscribe();
     } else {
       console.error('Form is invalid');
     }

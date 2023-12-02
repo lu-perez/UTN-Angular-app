@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MaterialModule } from './modules/material.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -9,16 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SpinnerComponent
   ],
   imports: [
+    MaterialModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
   ],
   exports: [
+    MaterialModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
     SpinnerComponent,
   ]
 })

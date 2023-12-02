@@ -5,6 +5,7 @@ import { AddGameComponent } from './components/add-game/add-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { GameRoutingModule } from './game-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GamesService } from './services/games.service';
 
 @NgModule({
   declarations: [
@@ -17,5 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     GameRoutingModule,
     SharedModule,
   ],
+  providers: [
+    GamesService,
+  ]
 })
 export class GameModule { }

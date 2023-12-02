@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpinnerService } from '../shared/services/spinner.service';
 import { Observable } from 'rxjs';
 
@@ -7,12 +7,19 @@ import { Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterContentChecked {
   spinnerState$!: Observable<boolean>;
 
-  constructor(private spinnerService: SpinnerService) {}
+  constructor(
+    private spinnerService: SpinnerService,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.spinnerState$ = this.spinnerService.spinnerState$;
+  }
+
+  ngAfterContentChecked(): void {
+    this.cd.detectChanges();
   }
 }
