@@ -4,58 +4,81 @@
       "id": 1,
       "email": "user@user.com",
       "password": "user",
-      "role": "user"
+      "role": "User"
     },
     {
       "id": 2,
-      "email": "admin@admin.com",
-      "password": "admin",
-      "role": "admin"
+      "email": "user2@user2.com",
+      "password": "user2",
+      "role": "User"
     },
     {
       "id": 3,
+      "email": "admin@admin.com",
+      "password": "admin",
+      "role": "Admin"
+    },
+    {
+      "id": 4,
       "email": "agent@agent.com",
       "password": "agent",
-      "role": "agent"
+      "role": "Agent"
     }
   ],
   "games": [
     {
-      "id": 4,
+      "id": 5,
       "name": "Space Adventure",
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
       "storageRequirements": "50GB",
       "genre": "Sci-Fi",
-      "price": "29.99"
+      "price": 29.99
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Fantasy Quest",
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
       "storageRequirements": "100GB",
       "genre": "Fantasy",
-      "price": "49.99"
+      "price": 49.99
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Racing Rivals",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
       "genre": "Racing",
-      "price": "39.99"
+      "price": 39.99
     }
   ],
-  "dlc": [
+  "dlcs": [
     {
-      "id": 7,
+      "id": 8,
       "name": "DLC Space Adventure",
-      "price": "9",
+      "price": 9.99,
       "relatedGameId": 1
     }
   ],
-  "genre": [],
-  "purchase": []
+  "genres": [],
+  "purchases": [
+    {
+      "id": 9,
+      "gameId": 6,
+      "userId": 1,
+      "paymentMethod": "Credit Card",
+      "pricePaid": 49.99
+    }
+  ],
+  "lends": [
+    {
+      "id": 10,
+      "gameId": 6,
+      "lenderUserId": 1,
+      "borrowerUserId": 2,
+      "expirationDate": "20-12-2023"
+    }
+  ]
 }
