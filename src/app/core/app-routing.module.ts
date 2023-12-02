@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
+    loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule),
   },
   {
-    path: 'games',
-    loadChildren: () => import('./modules/game/game.module').then(m => m.GameModule)
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
-    path: 'genders',
-    loadChildren: () => import('./modules/gender/gender.module').then(m => m.GenderModule)
+    path: 'dashboard',
+    component: DashboardComponent,
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
   },
   {
     path: '**',

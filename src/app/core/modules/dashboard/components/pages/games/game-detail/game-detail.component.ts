@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game } from 'src/app/shared/types/types';
-import { GamesService } from '../../services/games.service';
 import { Observable } from 'rxjs';
+import { GamesService } from '../../../../services/games.service';
 
 @Component({
   selector: 'app-game-detail',

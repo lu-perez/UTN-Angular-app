@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
-import { GameModule } from './modules/game/game.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +13,10 @@ import { GameModule } from './modules/game/game.module';
   ],
   imports: [
     BrowserModule,
-
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    GameModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
