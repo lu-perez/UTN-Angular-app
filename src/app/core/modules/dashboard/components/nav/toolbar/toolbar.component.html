@@ -1,1 +1,48 @@
-<p>toolbar works!</p>
+<mat-toolbar>
+
+  <span *ngIf="currentUser">{{currentUser.email}}</span>
+
+  <span class="flex-spacer"></span>
+
+  <button mat-button class="mr-2" [matMenuTriggerFor]="gamesMenu">
+    Games
+  </button>
+  <mat-menu #gamesMenu="matMenu">
+    <button mat-menu-item routerLink="/dashboard/games">
+      <mat-icon>view_list</mat-icon>    
+      <span>Games list</span>
+    </button>
+    <button mat-menu-item routerLink="/dashboard/games/add" *ngIf="currentUser?.role === Role.Admin || currentUser?.role === Role.Agent">
+      <mat-icon>add</mat-icon>
+      <span>Add game</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button class="mr-2" [matMenuTriggerFor]="genresMenu" *ngIf="currentUser?.role === Role.Admin">
+    Genres
+  </button>
+  <mat-menu #genresMenu="matMenu">
+    <button mat-menu-item routerLink="/dashboard/genres">
+      <mat-icon>view_list</mat-icon>
+      <span>Genres list</span>
+    </button>
+    <button mat-menu-item routerLink="/dashboard/genres/add">
+      <mat-icon>add</mat-icon>
+      <span>Add Genre</span>
+    </button>
+  </mat-menu>
+
+  <button
+    mat-button
+    class="mr-2"
+    routerLink="/dashboard/lend"
+    *ngIf="currentUser?.role === Role.User"
+  >
+    Lend
+  </button>
+
+  <button mat-icon-button aria-label="logout" (click)="logOut()" *ngIf="currentUser">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>
