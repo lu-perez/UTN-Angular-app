@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { GamesListComponent } from './components/games-list/games-list.component';
 import { AddGameComponent } from './components/add-game/add-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
+import { GameDetailComponent } from './components/game-detail/game-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: GamesListComponent,
+  },
+  {
+    path: ':id',
+    component: GameDetailComponent,
   },
   {
     path: 'add',

@@ -10,7 +10,7 @@
       "price": "$29.99"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Fantasy Quest",
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
@@ -19,22 +19,13 @@
       "price": "$49.99"
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Racing Rivals",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
       "genre": "Racing",
       "price": "$39.99"
-    },
-    {
-      "name": "ASDASDASD",
-      "cpuRequirements": "ADSADSASD",
-      "memoryRequirements": "SDASDASDA",
-      "storageRequirements": "SDASDASDAS",
-      "genre": "DASDASDASD",
-      "price": "SDASDASDASD",
-      "id": 2
     }
   ],
   "genre": [

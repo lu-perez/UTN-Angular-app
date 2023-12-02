@@ -9,6 +9,11 @@ export class GamesService {
 
   constructor(private http: HttpClient) { }
 
+  getGame(gameId: string): Observable<Game> {
+    const url = `${this.apiURL}/games/${gameId}`;
+    return this.http.get<Game>(url);
+  }
+
   getGames(): Observable<Game[]> {
     const url = `${this.apiURL}/games`;
     return this.http.get<Game[]>(url);
