@@ -11,16 +11,16 @@ const routes: Routes = [
     component: GamesListComponent,
   },
   {
-    path: ':id',
-    component: GameDetailComponent,
-  },
-  {
     path: 'add',
     component: AddGameComponent,
   },
   {
     path: 'edit/:id',
     component: EditGameComponent,
+  },
+  {
+    path: ':id',
+    component: GameDetailComponent,
   },
 ];
 
