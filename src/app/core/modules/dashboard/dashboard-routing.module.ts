@@ -9,6 +9,10 @@ import { EditGameComponent } from './components/pages/games/edit-game/edit-game.
 import { AddGameComponent } from './components/pages/games/add-game/add-game.component';
 import { RoleGuard } from '../../guards/role.guard';
 import { Role } from 'src/app/shared/types/types';
+import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.component';
+import { AddDlcComponent } from './components/pages/dlcs/add-dlc/add-dlc.component';
+import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.component';
+import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
 
 const routes: Routes = [
   {
@@ -48,7 +52,7 @@ const routes: Routes = [
     component: AddGameComponent,
     canActivate: [RoleGuard],
     data: {
-      roles: [Role.Agent, Role.Admin]
+      roles: [Role.Agent]
     }
   },
   {
@@ -56,7 +60,7 @@ const routes: Routes = [
     component: EditGameComponent,
     canActivate: [RoleGuard],
     data: {
-      roles: [Role.Agent, Role.Admin]
+      roles: [Role.Agent]
     }
   },
   {
@@ -65,6 +69,38 @@ const routes: Routes = [
     canActivate: [RoleGuard],
     data: {
       roles: [Role.User, Role.Agent, Role.Admin]
+    }
+  },
+  {
+    path: 'dlcs',
+    component: DlcsListComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.Agent]
+    }
+  },
+  {
+    path: 'dlcs/add',
+    component: AddDlcComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.Agent]
+    }
+  },
+  {
+    path: 'dlcs/edit/:id',
+    component: EditDlcComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.Agent]
+    }
+  },
+  {
+    path: 'dlcs/:id',
+    component: DlcDetailComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.Agent]
     }
   },
 ];

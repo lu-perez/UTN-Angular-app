@@ -13,6 +13,11 @@ import { GameDetailComponent } from './components/pages/games/game-detail/game-d
 import { EditGameComponent } from './components/pages/games/edit-game/edit-game.component';
 import { AddGameComponent } from './components/pages/games/add-game/add-game.component';
 import { GamesService } from './services/games.service';
+import { AddDlcComponent } from './components/pages/dlcs/add-dlc/add-dlc.component';
+import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.component';
+import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
+import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.component';
+import { DLCsService } from './services/dlcs.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { GamesService } from './services/games.service';
     GendersListComponent,
     AddGenderComponent,
     EditGenderComponent,
+    AddDlcComponent,
+    EditDlcComponent,
+    DlcDetailComponent,
+    DlcsListComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +42,7 @@ import { GamesService } from './services/games.service';
   ],
   providers: [
     GamesService,
+    DLCsService,
   ]
 })
 export class DashboardModule { }

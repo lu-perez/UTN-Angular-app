@@ -4,29 +4,59 @@
 
   <span class="flex-spacer"></span>
 
-  <button mat-button class="mr-2" [matMenuTriggerFor]="gamesMenu">
+  <button
+    mat-button
+    class="mr-2"
+    [matMenuTriggerFor]="gamesMenu"
+  >
     Games
   </button>
   <mat-menu #gamesMenu="matMenu">
-    <button mat-menu-item routerLink="/dashboard/games">
+    <button
+      mat-menu-item
+      routerLink="/dashboard/games"
+    >
       <mat-icon>view_list</mat-icon>    
       <span>Games list</span>
     </button>
-    <button mat-menu-item routerLink="/dashboard/games/add" *ngIf="currentUser?.role === Role.Admin || currentUser?.role === Role.Agent">
+    <button
+      mat-menu-item
+      routerLink="/dashboard/games/add"
+      *ngIf="currentUser?.role === Role.Admin || currentUser?.role === Role.Agent"
+    >
       <mat-icon>add</mat-icon>
       <span>Add game</span>
     </button>
+    <button
+      mat-menu-item
+      routerLink="/dashboard/dlcs/add"
+      *ngIf="currentUser?.role === Role.Agent"
+    >
+      <mat-icon>add</mat-icon>
+      <span>Add DLC</span>
+    </button>
   </mat-menu>
 
-  <button mat-button class="mr-2" [matMenuTriggerFor]="genresMenu" *ngIf="currentUser?.role === Role.Admin">
+  <button
+    mat-button
+    class="mr-2"
+    [matMenuTriggerFor]="genresMenu"
+    *ngIf="currentUser?.role === Role.Admin"
+  >
     Genres
   </button>
   <mat-menu #genresMenu="matMenu">
-    <button mat-menu-item routerLink="/dashboard/genres">
+    <button
+      mat-menu-item
+      routerLink="/dashboard/genres"
+    >
       <mat-icon>view_list</mat-icon>
       <span>Genres list</span>
     </button>
-    <button mat-menu-item routerLink="/dashboard/genres/add">
+    <button
+      mat-menu-item
+      routerLink="/dashboard/genres/add"
+    >
       <mat-icon>add</mat-icon>
       <span>Add Genre</span>
     </button>
@@ -41,7 +71,12 @@
     Lend
   </button>
 
-  <button mat-icon-button aria-label="logout" (click)="logOut()" *ngIf="currentUser">
+  <button
+    mat-icon-button
+    aria-label="logout"
+    (click)="logOut()"
+    *ngIf="currentUser"
+  >
     <mat-icon>logout</mat-icon>
   </button>
 

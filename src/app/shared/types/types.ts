@@ -8,18 +8,16 @@ export type Game = {
   price: string;
 }
 
-export type NewGame = Omit<
-  Game,
-  'id'
->
+export type NewGame = Omit<Game, 'id'>
 
 export type DLC = Omit<
   Game,
   'cpuRequirements' | 'memoryRequirements' | 'storageRequirements' | 'genre'
 > & {
-  id: number;
   relatedGameId: number;
 }
+
+export type NewDLC = Omit<DLC, 'id'>
 
 export enum Role {
   User = 'User',
@@ -34,10 +32,7 @@ export type User = {
   role: Role;
 }
 
-export type LogInRequest = Omit<
-  User,
-  'id' | 'role'
->
+export type LogInRequest = Omit<User, 'id' | 'role'>
 
 export type SafeUser = Omit<
   User,
