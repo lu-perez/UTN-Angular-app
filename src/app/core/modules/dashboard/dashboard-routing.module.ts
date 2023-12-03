@@ -76,7 +76,7 @@ const routes: Routes = [
     component: DlcsListComponent,
     canActivate: [RoleGuard],
     data: {
-      roles: [Role.Agent]
+      roles: [Role.User, Role.Agent, Role.Admin]
     }
   },
   {
@@ -100,7 +100,7 @@ const routes: Routes = [
     component: DlcDetailComponent,
     canActivate: [RoleGuard],
     data: {
-      roles: [Role.Agent]
+      roles: [Role.User, Role.Agent, Role.Admin]
     }
   },
 ];

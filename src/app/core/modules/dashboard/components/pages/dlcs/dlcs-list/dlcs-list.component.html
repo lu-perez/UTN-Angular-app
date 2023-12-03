@@ -1,1 +1,5 @@
-<p>dlcs-list works!</p>
+<div *ngIf="DLCs$ | async">
+  <div *ngFor="let DLC of DLCs$ | async">
+    <P>{{DLC.name}}</P>
+  </div>
+</div>

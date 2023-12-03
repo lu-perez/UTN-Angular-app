@@ -60,6 +60,12 @@
       "name": "DLC Space Adventure",
       "price": 9.99,
       "relatedGameId": 5
+    },
+    {
+      "name": "AAAAAA",
+      "price": "123",
+      "relatedGameId": "6",
+      "id": 9
     }
   ],
   "genres": [],
