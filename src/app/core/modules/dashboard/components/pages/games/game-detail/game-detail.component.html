@@ -1,4 +1,4 @@
-<div class="p-2">
+<div class="mt-4">
   <mat-card *ngIf="game">
     <mat-card-header>
       <mat-card-title>{{game.name}}</mat-card-title>
@@ -12,19 +12,19 @@
       <mat-list>
         <div mat-subheader>Minimum requirements</div>
         <mat-list-item>
-          <mat-icon matListItemIcon>description</mat-icon>
+          <mat-icon matListItemIcon>bolt</mat-icon>
           <h3 matListItemTitle>{{game.cpuRequirements}}</h3>
           <small matListItemLine>CPU Requirements</small>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
-          <mat-icon matListItemIcon>description</mat-icon>
+          <mat-icon matListItemIcon>memory</mat-icon>
           <h3 matListItemTitle>{{game.memoryRequirements}}</h3>
           <small matListItemLine>Memory Requirements</small>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
-          <mat-icon matListItemIcon>description</mat-icon>
+          <mat-icon matListItemIcon>storage</mat-icon>
           <h3 matListItemTitle>{{game.storageRequirements}}</h3>
           <small matListItemLine>Storage Requirements</small>
         </mat-list-item>

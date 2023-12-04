@@ -51,7 +51,7 @@ export class AddPurchaseComponent implements OnInit {
     if (this.addPurchaseForm.valid) {
       this.purchasesService.addPurchase(this.addPurchaseForm.value).subscribe({
         complete: () => {
-          this.router.navigate(['/dashboard/purchases']);
+          this.router.navigate(['/dashboard/games']);
           this.dialogRef.close();
         },
         error: (err) => {
