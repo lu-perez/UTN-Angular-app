@@ -1,0 +1,89 @@
+$spacer: 1rem;
+
+.m-0 {
+  margin: 0 !important;
+}
+
+// Margin Right Classes
+.mr-1 {
+  margin-right: $spacer * 0.25 !important;
+}
+
+.mr-2 {
+  margin-right: $spacer * 0.5 !important;
+}
+
+.mr-3 {
+  margin-right: $spacer * 1 !important;
+}
+
+.mr-4 {
+  margin-right: $spacer * 1.5 !important;
+}
+
+.mr-5 {
+  margin-right: $spacer * 3 !important;
+}
+
+// Margin Left Classes
+.ml-1 {
+  margin-left: $spacer * 0.25 !important;
+}
+
+.ml-2 {
+  margin-left: $spacer * 0.5 !important;
+}
+
+.ml-3 {
+  margin-left: $spacer * 1 !important;
+}
+
+.ml-4 {
+  margin-left: $spacer * 1.5 !important;
+}
+
+.ml-5 {
+  margin-left: $spacer * 3 !important;
+}
+
+// Margin Top Classes
+.mt-1 {
+  margin-top: $spacer * 0.25 !important;
+}
+
+.mt-2 {
+  margin-top: $spacer * 0.5 !important;
+}
+
+.mt-3 {
+  margin-top: $spacer * 1 !important;
+}
+
+.mt-4 {
+  margin-top: $spacer * 1.5 !important;
+}
+
+.mt-5 {
+  margin-top: $spacer * 3 !important;
+}
+
+// Margin Bottom Classes
+.mb-1 {
+  margin-bottom: $spacer * 0.25 !important;
+}
+
+.mb-2 {
+  margin-bottom: $spacer * 0.5 !important;
+}
+
+.mb-3 {
+  margin-bottom: $spacer * 1 !important;
+}
+
+.mb-4 {
+  margin-bottom: $spacer * 1.5 !important;
+}
+
+.mb-5 {
+  margin-bottom: $spacer * 3 !important;
+}

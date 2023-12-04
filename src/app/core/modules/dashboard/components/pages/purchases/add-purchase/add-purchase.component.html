@@ -1,0 +1,55 @@
+<app-dialog-modal>
+  <div class="app-dialog-actions">
+    <div class="title-and-button">
+      <button mat-icon-button (click)="close()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h3 class="ml-2 m-0">{{data.title}}</h3>
+    </div>
+  </div>
+
+  <div class="app-dialog-content">
+
+    <mat-list class="mb-3">
+      <div mat-subheader>Buy Game Details</div>
+      <mat-list-item>
+        <mat-icon matListItemIcon>adjust</mat-icon>
+        <h3 matListItemTitle>{{game.name}}</h3>
+        <small matListItemLine>Game Name</small>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <mat-icon matListItemIcon>attach_money</mat-icon>
+        <h3 matListItemTitle>{{game.price | currency }}</h3>
+        <small matListItemLine>Game Price</small>
+      </mat-list-item>
+    </mat-list>
+
+    <form [formGroup]="addPurchaseForm" id="myForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Payment Method</mat-label>
+        <mat-select formControlName="paymentMethod">
+          <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">
+            {{ paymentMethod }}
+          </mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="addPurchaseForm.controls['paymentMethod'].invalid
+          && (addPurchaseForm.controls['paymentMethod'].dirty
+          || addPurchaseForm.controls['paymentMethod'].touched)"
+        >
+          Please select a payment method.
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!addPurchaseForm.valid"
+      >Buy</button>
+
+    </form>
+
+  </div>
+</app-dialog-modal>

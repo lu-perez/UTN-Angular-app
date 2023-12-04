@@ -3,10 +3,12 @@ import { MaterialModule } from './modules/material.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogModalComponent } from './components/modal/dialog-modal/dialog-modal.component';
 
 @NgModule({
   declarations: [
-    SpinnerComponent
+    SpinnerComponent,
+    DialogModalComponent
   ],
   imports: [
     MaterialModule,
@@ -20,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     SpinnerComponent,
+    DialogModalComponent,
   ]
 })
 export class SharedModule { }

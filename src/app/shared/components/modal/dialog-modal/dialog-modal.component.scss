@@ -1,0 +1,16 @@
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-dialog-content {
+  min-height: 62vh;
+
+  @media (max-width: 600px) {
+    min-height: 80vh;
+  }
+
+  @media (min-width: 600px) {
+    min-width: 500px;
+  }
+}

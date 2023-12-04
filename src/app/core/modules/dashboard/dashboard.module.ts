@@ -19,6 +19,8 @@ import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detai
 import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.component';
 import { DLCsService } from './services/dlcs.service';
 import { GameCardComponent } from './components/pages/games/games-list/game-card/game-card.component';
+import { AddPurchaseComponent } from './components/pages/purchases/add-purchase/add-purchase.component';
+import { PurchasesService } from './services/purchases.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { GameCardComponent } from './components/pages/games/games-list/game-card
     DlcDetailComponent,
     DlcsListComponent,
     GameCardComponent,
+    AddPurchaseComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ import { GameCardComponent } from './components/pages/games/games-list/game-card
   providers: [
     GamesService,
     DLCsService,
+    PurchasesService,
   ]
 })
 export class DashboardModule { }

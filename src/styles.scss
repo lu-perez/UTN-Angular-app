@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/spacing.scss";
 
 html,
 body {
@@ -36,16 +36,4 @@ body {
 
 .vh-90 {
   height: 90vh;
-}
-
-.mr-2 {
-  margin-right: 2rem;
-}
-
-.ml-2 {
-  margin-left: 2rem;
-}
-
-.p-2 {
-  padding: 2rem;
 }

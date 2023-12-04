@@ -52,6 +52,8 @@ export type Purchase = {
   pricePaid: string;
 }
 
+export type NewPurchase = Omit<Purchase, 'id'>
+
 export type Lend = {
   id: number;
   gameId: number;
