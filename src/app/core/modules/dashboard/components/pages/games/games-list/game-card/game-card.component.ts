@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { GamesService } from 'src/app/core/modules/dashboard/services/games.service';
 import { ConfirmModalComponent } from 'src/app/shared/components/modal/confirm-modal/confirm-modal.component';
 import { Game, SafeUser, Role } from 'src/app/shared/types/types';
@@ -21,7 +20,6 @@ export class GameCardComponent {
   constructor(
     private dialog: MatDialog,
     private gamesService: GamesService,
-    private router: Router,
   ) { }
 
   editGame() {
