@@ -1,3 +1,40 @@
-<div *ngIf="game$ | async as game">
-  <p>{{game.name}}</p>
+<div class="p-2">
+  <mat-card *ngIf="game$ | async as game">
+    <mat-card-header>
+      <mat-card-title>{{game.name}}</mat-card-title>
+      <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+  
+      <img mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
+  
+      <mat-list>
+        <div mat-subheader>Minimum requirements</div>
+        <mat-list-item>
+          <mat-icon matListItemIcon>description</mat-icon>
+          <h3 matListItemTitle>{{game.cpuRequirements}}</h3>
+          <small matListItemLine>CPU Requirements</small>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>description</mat-icon>
+          <h3 matListItemTitle>{{game.memoryRequirements}}</h3>
+          <small matListItemLine>Memory Requirements</small>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>description</mat-icon>
+          <h3 matListItemTitle>{{game.storageRequirements}}</h3>
+          <small matListItemLine>Storage Requirements</small>
+        </mat-list-item>
+      </mat-list>
+  
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-flat-button color="primary">Buy this game</button>
+    </mat-card-actions>
+  
+  </mat-card>
 </div>

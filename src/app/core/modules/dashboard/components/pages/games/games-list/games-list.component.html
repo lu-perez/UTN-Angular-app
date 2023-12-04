@@ -1,5 +1,7 @@
-<div *ngIf="games$ | async" class="p-2">
-  <div *ngFor="let game of games$ | async">
-    <p>{{game.name}}</p>
-  </div>
+<div class="responsive-grid p-2" *ngIf="games$ | async">
+  <app-game-card
+    *ngFor="let game of games$ | async"
+    [game]="game"
+    [currentUser]="currentUser"
+  ></app-game-card>
 </div>

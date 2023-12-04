@@ -1,0 +1,9 @@
+mat-card-header ::ng-deep * {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+mat-card-actions {
+  justify-content: flex-end;
+}

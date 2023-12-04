@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{game.name}}</mat-card-title>
+    <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
+  <mat-card-content>
+    <h3><b>{{game.price | currency }}</b></h3>
+  </mat-card-content>
+  <mat-card-actions>
+    <ng-container *ngIf="currentUser?.role === Role.User">
+      <button
+        mat-stroked-button
+        color="primary"
+        routerLink="/dashboard/games/{{game.id}}"
+      >View</button>
+    </ng-container>
+    <ng-container *ngIf="currentUser?.role === Role.Agent">
+      <button mat-icon-button color="accent"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

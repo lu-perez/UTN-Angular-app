@@ -18,6 +18,7 @@ import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.comp
 import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
 import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.component';
 import { DLCsService } from './services/dlcs.service';
+import { GameCardComponent } from './components/pages/games/games-list/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DLCsService } from './services/dlcs.service';
     EditDlcComponent,
     DlcDetailComponent,
     DlcsListComponent,
+    GameCardComponent,
   ],
   imports: [
     CommonModule,
