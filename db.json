@@ -52,6 +52,15 @@
       "storageRequirements": "80GB",
       "genre": "Racing",
       "price": 39.99
+    },
+    {
+      "name": "asdasda",
+      "cpuRequirements": "dadada",
+      "memoryRequirements": "asdasdasd",
+      "storageRequirements": "sdasdasd",
+      "genre": "asdasdasd",
+      "price": "132123123",
+      "id": 8
     }
   ],
   "dlcs": [

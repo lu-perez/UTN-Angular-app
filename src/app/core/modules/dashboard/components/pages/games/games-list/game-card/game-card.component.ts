@@ -9,6 +9,7 @@ import { Game, SafeUser, Role } from 'src/app/shared/types/types';
 export class GameCardComponent {
   @Input() game!: Game;
   @Input() currentUser!: SafeUser | null;
+  @Input() isHandset!: boolean;
   Role = Role;
 
   editGame(game: Game) {
