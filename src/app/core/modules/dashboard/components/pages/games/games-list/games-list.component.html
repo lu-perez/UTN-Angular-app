@@ -1,4 +1,4 @@
-<div *ngIf="games$ | async">
+<div *ngIf="games$ | async" class="p-2">
   <div *ngFor="let game of games$ | async">
     <p>{{game.name}}</p>
   </div>

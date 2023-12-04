@@ -1,84 +1,86 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-subtitle>Create a new game</mat-card-subtitle>
-    <mat-card-title>New Game</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form [formGroup]="addGameForm" (ngSubmit)="onSubmit()">
-
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="name">Game Name</mat-label>
-        <input matInput type="text" id="name" formControlName="name" />
-        <mat-error *ngIf="addGameForm.controls['name'].invalid
-          && (addGameForm.controls['name'].dirty
-          || addGameForm.controls['name'].touched)"
-        >
-          Please enter a game name.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="cpuRequirements">CPU Requirements</mat-label>
-        <input matInput type="text" id="cpuRequirements" formControlName="cpuRequirements" />
-        <mat-error *ngIf="addGameForm.controls['cpuRequirements'].invalid
-          && (addGameForm.controls['cpuRequirements'].dirty
-          || addGameForm.controls['cpuRequirements'].touched)"
-        >
-          Please enter the cpu requirements.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="memoryRequirements">Memory Requirements</mat-label>
-        <input matInput type="text" id="memoryRequirements" formControlName="memoryRequirements" />
-        <mat-error *ngIf="addGameForm.controls['memoryRequirements'].invalid
-          && (addGameForm.controls['memoryRequirements'].dirty
-          || addGameForm.controls['memoryRequirements'].touched)"
-        >
-          Please enter the memory requirements.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="storageRequirements">Storage Requirements</mat-label>
-        <input matInput type="text" id="storageRequirements" formControlName="storageRequirements" />
-        <mat-error *ngIf="addGameForm.controls['storageRequirements'].invalid
-          && (addGameForm.controls['storageRequirements'].dirty
-          || addGameForm.controls['storageRequirements'].touched)"
-        >
-          Please enter the storage requirements.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="genre">Genre</mat-label>
-        <input matInput type="text" id="genre" formControlName="genre" />
-        <mat-error *ngIf="addGameForm.controls['genre'].invalid
-          && (addGameForm.controls['genre'].dirty
-          || addGameForm.controls['genre'].touched)"
-        >
-          Please enter the genre.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="outline" floatLabel="auto">
-        <mat-label for="price">Price</mat-label>
-        <input matInput type="text" id="price" formControlName="price" />
-        <mat-error *ngIf="addGameForm.controls['price'].invalid
-          && (addGameForm.controls['price'].dirty
-          || addGameForm.controls['price'].touched)"
-        >
-          Please enter the price.
-        </mat-error>
-      </mat-form-field>
-
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="!addGameForm.valid"
-      >Save</button>
-
-    </form>
-  </mat-card-content>
-</mat-card>
+<div class="content-center">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Create a new game</mat-card-subtitle>
+      <mat-card-title>New Game</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="addGameForm" (ngSubmit)="onSubmit()">
+  
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="name">Game Name</mat-label>
+          <input matInput type="text" id="name" formControlName="name" />
+          <mat-error *ngIf="addGameForm.controls['name'].invalid
+            && (addGameForm.controls['name'].dirty
+            || addGameForm.controls['name'].touched)"
+          >
+            Please enter a game name.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="cpuRequirements">CPU Requirements</mat-label>
+          <input matInput type="text" id="cpuRequirements" formControlName="cpuRequirements" />
+          <mat-error *ngIf="addGameForm.controls['cpuRequirements'].invalid
+            && (addGameForm.controls['cpuRequirements'].dirty
+            || addGameForm.controls['cpuRequirements'].touched)"
+          >
+            Please enter the cpu requirements.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="memoryRequirements">Memory Requirements</mat-label>
+          <input matInput type="text" id="memoryRequirements" formControlName="memoryRequirements" />
+          <mat-error *ngIf="addGameForm.controls['memoryRequirements'].invalid
+            && (addGameForm.controls['memoryRequirements'].dirty
+            || addGameForm.controls['memoryRequirements'].touched)"
+          >
+            Please enter the memory requirements.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="storageRequirements">Storage Requirements</mat-label>
+          <input matInput type="text" id="storageRequirements" formControlName="storageRequirements" />
+          <mat-error *ngIf="addGameForm.controls['storageRequirements'].invalid
+            && (addGameForm.controls['storageRequirements'].dirty
+            || addGameForm.controls['storageRequirements'].touched)"
+          >
+            Please enter the storage requirements.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="genre">Genre</mat-label>
+          <input matInput type="text" id="genre" formControlName="genre" />
+          <mat-error *ngIf="addGameForm.controls['genre'].invalid
+            && (addGameForm.controls['genre'].dirty
+            || addGameForm.controls['genre'].touched)"
+          >
+            Please enter the genre.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="price">Price</mat-label>
+          <input matInput type="text" id="price" formControlName="price" />
+          <mat-error *ngIf="addGameForm.controls['price'].invalid
+            && (addGameForm.controls['price'].dirty
+            || addGameForm.controls['price'].touched)"
+          >
+            Please enter the price.
+          </mat-error>
+        </mat-form-field>
+  
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!addGameForm.valid"
+        >Save</button>
+  
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

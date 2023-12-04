@@ -1,4 +1,4 @@
-<div *ngIf="DLCs$ | async">
+<div *ngIf="DLCs$ | async" class="p-2">
   <div *ngFor="let DLC of DLCs$ | async">
     <P>{{DLC.name}}</P>
   </div>

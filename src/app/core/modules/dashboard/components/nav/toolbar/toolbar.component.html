@@ -1,6 +1,8 @@
 <mat-toolbar>
 
-  <span *ngIf="currentUser">{{currentUser.email}}</span>
+  <span *ngIf="currentUser">
+    <small>{{currentUser.email}}</small>
+  </span>
 
   <span class="flex-spacer"></span>
 
