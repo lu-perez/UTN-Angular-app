@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewPurchase, Purchase } from 'src/app/shared/types/types';
@@ -10,8 +10,13 @@ export class PurchasesService {
 
   constructor(private http: HttpClient) { }
 
-  getPurchase(purchaseId: string): Observable<Purchase> {
+  getPurchase(purchaseId: number): Observable<Purchase> {
     return this.http.get<Purchase>(`${this.url}/${purchaseId}`);
+  }
+
+  getPurchasesByBuyer(userId: number): Observable<Purchase[]> {
+    const params = new HttpParams().set('userId', userId);
+    return this.http.get<Purchase[]>(this.url, { params });
   }
 
   getPurchases(): Observable<Purchase[]> {

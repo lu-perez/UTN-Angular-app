@@ -70,6 +70,13 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
+    },
+    {
+      "gameId": 7,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 39.99,
+      "id": 10
     }
   ],
   "lends": [

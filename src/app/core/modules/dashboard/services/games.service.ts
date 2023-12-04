@@ -10,7 +10,7 @@ export class GamesService {
 
   constructor(private http: HttpClient) { }
 
-  getGame(gameId: string): Observable<Game> {
+  getGame(gameId: number): Observable<Game> {
     return this.http.get<Game>(`${this.url}/${gameId}`);
   }
 

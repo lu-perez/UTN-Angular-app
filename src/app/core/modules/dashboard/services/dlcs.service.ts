@@ -10,7 +10,7 @@ export class DLCsService {
 
   constructor(private http: HttpClient) { }
 
-  getDLC(dlcId: string): Observable<DLC> {
+  getDLC(dlcId: number): Observable<DLC> {
     return this.http.get<DLC>(`${this.url}/${dlcId}`);
   }
 
