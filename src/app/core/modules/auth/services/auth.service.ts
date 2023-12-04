@@ -26,8 +26,8 @@ export class AuthService {
           throw new Error('Invalid email or password');
         }
       }),
-      tap(user => {
-        sessionStorage.setItem(this.userKey, JSON.stringify(user));
+      tap(safeUser => {
+        sessionStorage.setItem(this.userKey, JSON.stringify(safeUser));
       }),
     );
   }
