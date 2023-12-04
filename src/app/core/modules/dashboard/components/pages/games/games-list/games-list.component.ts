@@ -30,11 +30,15 @@ export class GamesListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.games$ = this.gamesService.getGames();
+    this.getGames();
     this.currentUser = this.authService.getCurrentUser();
     this.isHandsetSubscription = this.isHandset$.subscribe((isHandset) => {
       this.isHandset = isHandset;
     });
+  }
+
+  getGames(): void {
+    this.games$ = this.gamesService.getGames();
   }
 
   ngOnDestroy(): void {

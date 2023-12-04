@@ -3,5 +3,6 @@
     *ngFor="let game of games$ | async"
     [game]="game"
     [currentUser]="currentUser"
+    (refreshList)="getGames()"
   ></app-game-card>
 </div>

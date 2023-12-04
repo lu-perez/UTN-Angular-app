@@ -4,11 +4,13 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModalComponent } from './components/modal/dialog-modal/dialog-modal.component';
+import { ConfirmModalComponent } from './components/modal/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
     SpinnerComponent,
-    DialogModalComponent
+    DialogModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     MaterialModule,
@@ -23,6 +25,7 @@ import { DialogModalComponent } from './components/modal/dialog-modal/dialog-mod
     ReactiveFormsModule,
     SpinnerComponent,
     DialogModalComponent,
+    ConfirmModalComponent,
   ]
 })
 export class SharedModule { }
