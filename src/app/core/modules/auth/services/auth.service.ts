@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
+import { exclude } from 'src/app/shared/helpers/exclude-object-fields';
 import { LogInRequest, SafeUser, User } from 'src/app/shared/types/types';
 import { environment } from 'src/environments/environment';
 
@@ -19,9 +20,8 @@ export class AuthService {
     return this.http.get<User[]>(this.url, { params }).pipe(
       map(userArray => {
         if (userArray && userArray.length > 0) {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { password, ...rest } = userArray[0];
-          return rest;
+          const safeUser: SafeUser = exclude<User, 'password'>(userArray[0], ['password']);
+          return safeUser;
         } else {
           throw new Error('Invalid email or password');
         }
