@@ -26,7 +26,7 @@ export class GameCardComponent {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       title: 'Confirm Delete Game',
-      message: 'Are you sure you want to delete this item?',
+      message: `Are you sure you want to delete ${this.game.name}?`,
     };
 
     const dialogRef = this.dialog.open(ConfirmModalComponent, dialogConfig);
