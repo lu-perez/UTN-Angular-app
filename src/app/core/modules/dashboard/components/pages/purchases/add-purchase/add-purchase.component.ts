@@ -56,7 +56,7 @@ export class AddPurchaseComponent implements OnInit {
         }
       });
     } else {
-      console.error('Form is invalid');
+      console.warn('Form is invalid');
     }
   }
 

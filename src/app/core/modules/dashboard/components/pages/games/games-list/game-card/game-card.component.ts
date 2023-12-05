@@ -22,10 +22,6 @@ export class GameCardComponent {
     private gamesService: GamesService,
   ) { }
 
-  editGame() {
-    console.log(this.game);
-  }
-
   deleteGame() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {

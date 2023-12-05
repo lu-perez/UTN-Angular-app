@@ -25,4 +25,8 @@ export class GamesService {
   deleteGame(gameId: number): Observable<Game> {
     return this.http.delete<Game>(`${this.url}/${gameId}`);
   }
+
+  updateGame(gameId: number, data: Game): Observable<Game> {
+    return this.http.put<Game>(`${this.url}/${gameId}`, data);
+  }
 }

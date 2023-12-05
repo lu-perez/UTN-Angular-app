@@ -16,7 +16,7 @@
       >View</button>
     </ng-container>
     <ng-container *ngIf="currentUser?.role === Role.Agent">
-      <button mat-icon-button color="accent"(click)="editGame()"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button color="accent" routerLink="dashboard/games/edit/{{game.id}}"><mat-icon>edit</mat-icon></button>
       <button mat-icon-button color="warn" (click)="deleteGame()"><mat-icon>delete</mat-icon></button>
     </ng-container>
   </mat-card-actions>

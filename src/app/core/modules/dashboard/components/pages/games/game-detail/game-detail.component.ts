@@ -21,7 +21,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   Role = Role;
   hasPurchasedGame = false;
 
-  purchases$!: Observable<Purchase[]>;
+  currentUserPurchases$!: Observable<Purchase[]>;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -44,15 +44,16 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const gameId = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '');
+    const gameId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+
     if (gameId) {
       this.gameSubscription = this.gamesService.getGame(gameId).subscribe(game => {
         this.game = game;
       });
 
       if (this.currentUser?.role === Role.User) {
-        this.purchases$ = this.purchasesService.getPurchasesByBuyer(this.currentUser?.id);
-        this.purchasesSubscription = this.purchases$.subscribe(purchases => {
+        this.currentUserPurchases$ = this.purchasesService.getPurchasesByBuyer(this.currentUser?.id);
+        this.purchasesSubscription = this.currentUserPurchases$.subscribe(purchases => {
           this.hasPurchasedGame = purchases.some(purchase => purchase.gameId === gameId);
         });
       }
@@ -87,7 +88,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     }
 
     dialogConfig.data = {
-      title: 'Buy game',
+      title: `Buy ${this.game?.name}`,
       game: this.game,
       currentUser: this.currentUser,
     };
@@ -96,7 +97,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   }
 
   playGame(): void {
-    console.log('play game');
+    console.log('play game', this.game);
   }
 
 }

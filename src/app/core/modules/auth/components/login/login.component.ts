@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         }
       });
     } else {
-      console.error('Form is invalid');
+      console.warn('Form is invalid');
     }
   }
 

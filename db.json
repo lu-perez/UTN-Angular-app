@@ -27,13 +27,13 @@
   ],
   "games": [
     {
-      "id": 5,
-      "name": "Space Adventure",
+      "name": "Space Adventureeeeeeeee",
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
       "storageRequirements": "50GB",
       "genre": "Sci-Fi",
-      "price": 29.99
+      "price": 29.99,
+      "id": 5
     },
     {
       "id": 6,
@@ -70,13 +70,6 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
-    },
-    {
-      "gameId": 7,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": 39.99,
-      "id": 10
     }
   ],
   "lends": [
