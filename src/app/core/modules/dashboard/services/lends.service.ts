@@ -14,18 +14,13 @@ export class LendsService {
     return this.http.get<Lend>(`${this.url}/${lendId}`);
   }
 
-  getLendsByLenderUser(lenderUserId: number): Observable<Lend[]> {
-    const params = new HttpParams().set('lenderUserId', lenderUserId);
+  getLends(queryParams: {
+    lenderUserId?: number,
+    borrowerUserId?: number,
+    gameId?: number,
+  }): Observable<Lend[]> {
+    const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<Lend[]>(this.url, { params });
-  }
-
-  getLendsByBorrowerUser(borrowerUserId: number): Observable<Lend[]> {
-    const params = new HttpParams().set('borrowerUserId', borrowerUserId);
-    return this.http.get<Lend[]>(this.url, { params });
-  }
-
-  getLends(): Observable<Lend[]> {
-    return this.http.get<Lend[]>(this.url);
   }
 
   addLend(data: NewLend): Observable<Lend> {

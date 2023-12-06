@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SafeUser, User } from 'src/app/shared/types/types';
+import { Role, SafeUser, User } from 'src/app/shared/types/types';
 import { Observable, map } from 'rxjs';
 import { exclude } from 'src/app/shared/helpers/exclude-object-fields';
 
@@ -20,8 +20,12 @@ export class UsersService {
     );
   }
 
-  getUsers(): Observable<SafeUser[]> {
-    return this.http.get<User[]>(this.url).pipe(
+  getUsers(queryParams: {
+    role?: Role,
+    id_ne?: number,
+  }): Observable<SafeUser[]> {
+    const params = new HttpParams({ fromObject: queryParams });
+    return this.http.get<User[]>(this.url, { params }).pipe(
       map(users => users.map(user => exclude<User, 'password'>(user, ['password'])))
     );
   }

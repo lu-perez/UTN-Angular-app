@@ -14,13 +14,11 @@ export class PurchasesService {
     return this.http.get<Purchase>(`${this.url}/${purchaseId}`);
   }
 
-  getPurchasesByBuyer(userId: number): Observable<Purchase[]> {
-    const params = new HttpParams().set('userId', userId);
+  getPurchases(queryParams: {
+    userId: number,
+  }): Observable<Purchase[]> {
+    const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<Purchase[]>(this.url, { params });
-  }
-
-  getPurchases(): Observable<Purchase[]> {
-    return this.http.get<Purchase[]>(this.url);
   }
 
   addPurchase(data: NewPurchase): Observable<Purchase> {

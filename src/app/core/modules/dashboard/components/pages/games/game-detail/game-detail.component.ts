@@ -53,7 +53,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       });
 
       if (this.currentUser?.role === Role.User) {
-        this.currentUserPurchases$ = this.purchasesService.getPurchasesByBuyer(this.currentUser?.id);
+        this.currentUserPurchases$ = this.purchasesService.getPurchases({ userId: this.currentUser?.id });
         this.purchasesSubscription = this.currentUserPurchases$.subscribe(purchases => {
           this.hasPurchasedGame = purchases.some(purchase => purchase.gameId === gameId);
         });

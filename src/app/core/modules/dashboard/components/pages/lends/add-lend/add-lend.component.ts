@@ -2,7 +2,6 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Game, Lend, Role, SafeUser } from 'src/app/shared/types/types';
 import { LendsService } from '../../../../services/lends.service';
-import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../../services/users.service';
 import { Subscription } from 'rxjs';
@@ -22,7 +21,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
   game!: Game;
   currentUser!: SafeUser | null;
   addLendForm!: FormGroup;
-  filteredUsers!: SafeUser[];
+  users!: SafeUser[];
   lends!: Lend[];
   usersAvailableToLend!: SafeUser[];
   borrowerUsers!: SafeUser[];
@@ -34,24 +33,25 @@ export class AddLendComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private lendsService: LendsService,
     private usersService: UsersService,
-    private router: Router,
     private dialogRef: MatDialogRef<AddLendComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {
     this.game = data.game;
     this.currentUser = data.currentUser;
 
-    this.usersSubscription = this.usersService.getUsers().subscribe(users => {
-      this.filteredUsers = users.filter(user => user.id !== this.currentUser?.id && user.role === Role.User);
+    this.usersSubscription = this.usersService.getUsers({
+      role: Role.User,
+      id_ne: this.currentUser?.id,
+    }).subscribe(users => {
+      this.users = users;
     });
 
-    this.lendsSubscription = this.lendsService.getLendsByLenderUser(Number(this.currentUser?.id)).subscribe(lends => {
+    this.lendsSubscription = this.lendsService.getLends({
+      gameId: this.game.id,
+    }).subscribe(lends => {
       this.lends = lends;
-
-      this.usersAvailableToLend = this.filteredUsers.filter(user => !this.lends.some(lend => lend.borrowerUserId === user.id));
-
-      const borrowerUsers = this.filteredUsers.filter(user => this.lends.some(lend => lend.borrowerUserId === user.id));
-
+      this.usersAvailableToLend = this.users.filter(user => !this.lends.some(lend => lend.borrowerUserId === user.id));
+      const borrowerUsers = this.users.filter(user => this.lends.some(lend => lend.borrowerUserId === user.id));
       this.lends.forEach(lend => {
         const borrower = borrowerUsers.find(b => b.id === lend.borrowerUserId);
         if (borrower) {

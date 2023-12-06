@@ -16,3 +16,12 @@ form {
   justify-content: space-between;
   align-items: center;
 }
+
+.no-borrowers {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  justify-content: center;
+  align-items: center;
+}

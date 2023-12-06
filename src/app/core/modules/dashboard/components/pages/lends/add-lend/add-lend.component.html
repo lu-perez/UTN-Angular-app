@@ -57,28 +57,33 @@
 
       <mat-tab label="Borrowers">
         <mat-list class="mb-3">
-          <div mat-subheader>Borrowers Details</div>
-          <ng-container *ngFor="let lend of lends; let i = index">
-            <div class="mat-list-item-menu">
-              <mat-list-item>
-                <mat-icon matListItemIcon>account_circle</mat-icon>
-                <h3 matListItemTitle>{{lend.borrowerEmail}}</h3>
-                <small matListItemLine>Expiration date: {{lend.expirationDate}}</small>  
-              </mat-list-item>
-              <div>
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="onDeleteLend(lend)">
-                    <mat-icon>delete</mat-icon>
-                    <span>Delete</span>
+          <div *ngIf="lends?.length; else noLends">
+            <div mat-subheader>Borrowers Details</div>
+            <ng-container *ngFor="let lend of lends; let i = index">
+              <div class="mat-list-item-menu">
+                <mat-list-item>
+                  <mat-icon matListItemIcon>account_circle</mat-icon>
+                  <h3 matListItemTitle>{{lend.borrowerEmail}}</h3>
+                  <small matListItemLine>Expiration date: {{lend.expirationDate}}</small>  
+                </mat-list-item>
+                <div>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">
+                    <mat-icon>more_vert</mat-icon>
                   </button>
-                </mat-menu>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="onDeleteLend(lend)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                  </mat-menu>
+                </div>
               </div>
-            </div>
-            <mat-divider *ngIf="i !== lends.length - 1"></mat-divider>
-          </ng-container>
+              <mat-divider *ngIf="i !== lends.length - 1"></mat-divider>
+            </ng-container>
+          </div>
+          <ng-template #noLends>
+            <div class="no-borrowers">No borrowers to show</div>
+          </ng-template>
         </mat-list>
       </mat-tab>
     </mat-tab-group>
