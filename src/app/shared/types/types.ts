@@ -58,6 +58,10 @@ export type Lend = {
   id: number;
   gameId: number;
   lenderUserId: number;
+  lenderEmail?: string;
   borrowerUserId: number;
+  borrowerEmail?: string;
   expirationDate: Date;
 }
+
+export type NewLend = Omit<Lend, 'id'>

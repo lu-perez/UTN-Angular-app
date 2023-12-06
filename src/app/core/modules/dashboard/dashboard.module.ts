@@ -21,6 +21,9 @@ import { DLCsService } from './services/dlcs.service';
 import { GameCardComponent } from './components/pages/games/games-list/game-card/game-card.component';
 import { AddPurchaseComponent } from './components/pages/purchases/add-purchase/add-purchase.component';
 import { PurchasesService } from './services/purchases.service';
+import { AddLendComponent } from './components/pages/lends/add-lend/add-lend.component';
+import { LendsService } from './services/lends.service';
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { PurchasesService } from './services/purchases.service';
     DlcsListComponent,
     GameCardComponent,
     AddPurchaseComponent,
+    AddLendComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +53,8 @@ import { PurchasesService } from './services/purchases.service';
     GamesService,
     DLCsService,
     PurchasesService,
+    LendsService,
+    UsersService,
   ]
 })
 export class DashboardModule { }

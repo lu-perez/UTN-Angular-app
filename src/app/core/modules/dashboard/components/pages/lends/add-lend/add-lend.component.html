@@ -1,0 +1,87 @@
+<app-dialog-modal>
+  <div class="app-dialog-actions">
+    <div class="title-and-button">
+      <button mat-icon-button (click)="close()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h3 class="ml-2 m-0">{{data.title}}</h3>
+    </div>
+  </div>
+
+  <div class="app-dialog-content">
+
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Lend">
+        <mat-list class="mb-3">
+          <div mat-subheader>Lend Game Details</div>
+          <mat-list-item>
+            <mat-icon matListItemIcon>sports_esports</mat-icon>
+            <h3 matListItemTitle>{{game.name}}</h3>
+            <small matListItemLine>Game Name</small>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <mat-icon matListItemIcon>category</mat-icon>
+            <h3 matListItemTitle>{{game.genre }}</h3>
+            <small matListItemLine>Game Genre</small>
+          </mat-list-item>
+        </mat-list>
+    
+        <ng-container *ngIf="usersAvailableToLend?.length; else noAvailableUsersToLend">
+          <form [formGroup]="addLendForm" id="myForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline" color="primary">
+              <mat-label>Lend to user</mat-label>
+              <mat-select formControlName="borrowerUserId">
+                <mat-option *ngFor="let user of usersAvailableToLend" [value]="user.id">
+                  {{ user.email }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addLendForm.controls['borrowerUserId'].invalid
+                && (addLendForm.controls['borrowerUserId'].dirty
+                || addLendForm.controls['borrowerUserId'].touched)">
+                Please select a borrower user.
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="!addLendForm.valid"
+            >Lend</button>
+          </form>
+        </ng-container>
+        <ng-template #noAvailableUsersToLend>
+          <p>No available users to lend this game</p>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Borrowers">
+        <mat-list class="mb-3">
+          <div mat-subheader>Borrowers Details</div>
+          <ng-container *ngFor="let lend of lends; let i = index">
+            <div class="mat-list-item-menu">
+              <mat-list-item>
+                <mat-icon matListItemIcon>account_circle</mat-icon>
+                <h3 matListItemTitle>{{lend.borrowerEmail}}</h3>
+                <small matListItemLine>Expiration date: {{lend.expirationDate}}</small>  
+              </mat-list-item>
+              <div>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="onDeleteLend(lend)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+            <mat-divider *ngIf="i !== lends.length - 1"></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</app-dialog-modal>

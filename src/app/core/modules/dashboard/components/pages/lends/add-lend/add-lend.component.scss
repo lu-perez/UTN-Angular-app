@@ -10,3 +10,9 @@ form {
   padding: 16px 0;
   min-height: 270px;
 }
+
+.mat-list-item-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

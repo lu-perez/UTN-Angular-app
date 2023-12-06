@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
 
   constructor(
     private spinnerService: SpinnerService,
-    private cd: ChangeDetectorRef,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -20,6 +20,6 @@ export class AppComponent implements OnInit, AfterContentChecked {
   }
 
   ngAfterContentChecked(): void {
-    this.cd.detectChanges();
+    this.cdr.detectChanges();
   }
 }

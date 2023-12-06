@@ -8,6 +8,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AddPurchaseComponent } from '../../purchases/add-purchase/add-purchase.component';
 import { AuthService } from 'src/app/core/modules/auth/services/auth.service';
 import { PurchasesService } from '../../../../services/purchases.service';
+import { AddLendComponent } from '../../lends/add-lend/add-lend.component';
 
 @Component({
   selector: 'app-game-detail',
@@ -15,7 +16,7 @@ import { PurchasesService } from '../../../../services/purchases.service';
   styleUrls: ['./game-detail.component.scss']
 })
 export class GameDetailComponent implements OnInit, OnDestroy {
-  game: Game | null = null;
+  game!: Game;
   isHandset!: boolean;
   currentUser: SafeUser | null;
   Role = Role;
@@ -98,6 +99,30 @@ export class GameDetailComponent implements OnInit, OnDestroy {
 
   playGame(): void {
     console.log('play game', this.game);
+  }
+
+  openLendGameModal(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.disableClose = true;
+
+    if (this.isHandset) {
+      dialogConfig.maxWidth = '100vW',
+      dialogConfig.width = '100%',
+      dialogConfig.maxHeight = '100vH',
+      dialogConfig.height = '100%',
+      dialogConfig.panelClass = 'slide-in-from-right';
+      dialogConfig.enterAnimationDuration = '0ms';
+      dialogConfig.exitAnimationDuration = '0ms';
+    }
+
+    dialogConfig.data = {
+      title: `Lend ${this.game?.name}`,
+      game: this.game,
+      currentUser: this.currentUser,
+    };
+
+    this.dialog.open(AddLendComponent, dialogConfig);
   }
 
 }

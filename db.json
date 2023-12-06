@@ -13,6 +13,12 @@
       "role": "User"
     },
     {
+      "id": 11,
+      "email": "user3@user3.com",
+      "password": "user3",
+      "role": "User"
+    },
+    {
       "id": 3,
       "email": "admin@admin.com",
       "password": "admin",
@@ -70,15 +76,28 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
+    },
+    {
+      "gameId": 5,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 29.99,
+      "id": 10
+    },
+    {
+      "gameId": 7,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 39.99,
+      "id": 11
     }
   ],
   "lends": [
     {
-      "id": 10,
       "gameId": 6,
       "lenderUserId": 1,
       "borrowerUserId": 2,
-      "expirationDate": "20-12-2023"
+      "id": 1
     }
   ]
 }

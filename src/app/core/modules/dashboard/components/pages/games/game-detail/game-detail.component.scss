@@ -15,3 +15,15 @@ mat-card-content {
 mat-card-actions {
   justify-content: flex-end;
 }
+
+.title-and-button {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-16%, 18%);
+}

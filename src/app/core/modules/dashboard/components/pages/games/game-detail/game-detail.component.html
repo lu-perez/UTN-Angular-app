@@ -1,8 +1,23 @@
 <div class="mt-4">
   <mat-card *ngIf="game">
     <mat-card-header>
-      <mat-card-title>{{game.name}}</mat-card-title>
-      <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+      <div class="title-and-button">
+        <button mat-icon-button routerLink="/dashboard/games">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h3 class="ml-2 m-0">{{game.name}}</h3>
+      </div>
+      <div class="menu" *ngIf="currentUser?.role === Role.User && hasPurchasedGame">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openLendGameModal()">
+            <mat-icon>group</mat-icon>
+            <span>Lend this game</span>
+          </button>
+        </mat-menu>
+      </div>
     </mat-card-header>
   
     <mat-card-content>
