@@ -47,7 +47,9 @@ export enum PaymentMethod {
 export type Purchase = {
   id: number;
   gameId: number;
+  game?: Game;
   userId: number;
+  user?: User;
   paymentMethod: PaymentMethod;
   pricePaid: string;
 }
@@ -56,11 +58,11 @@ export type NewPurchase = Omit<Purchase, 'id'>
 
 export type Lend = {
   id: number;
-  gameId: number;
   lenderUserId: number;
-  lenderEmail?: string;
-  borrowerUserId: number;
-  borrowerEmail?: string;
+  gameId: number;
+  game?: Game;
+  userId: number;
+  user: User;
   expirationDate: Date;
 }
 

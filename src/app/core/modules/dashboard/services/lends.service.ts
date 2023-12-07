@@ -16,8 +16,8 @@ export class LendsService {
 
   getLends(queryParams: {
     lenderUserId?: number,
-    borrowerUserId?: number,
     gameId?: number,
+    _expand?: string | string[],
   }): Observable<Lend[]> {
     const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<Lend[]>(this.url, { params });

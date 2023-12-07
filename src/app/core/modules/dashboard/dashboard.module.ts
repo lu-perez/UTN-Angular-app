@@ -24,6 +24,7 @@ import { PurchasesService } from './services/purchases.service';
 import { AddLendComponent } from './components/pages/lends/add-lend/add-lend.component';
 import { LendsService } from './services/lends.service';
 import { UsersService } from './services/users.service';
+import { LendsListComponent } from './components/pages/lends/lends-list/lends-list.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { UsersService } from './services/users.service';
     GameCardComponent,
     AddPurchaseComponent,
     AddLendComponent,
+    LendsListComponent,
   ],
   imports: [
     CommonModule,

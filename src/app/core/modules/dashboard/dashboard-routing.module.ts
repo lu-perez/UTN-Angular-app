@@ -13,6 +13,7 @@ import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.c
 import { AddDlcComponent } from './components/pages/dlcs/add-dlc/add-dlc.component';
 import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.component';
 import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
+import { LendsListComponent } from './components/pages/lends/lends-list/lends-list.component';
 
 const routes: Routes = [
   {
@@ -101,7 +102,15 @@ const routes: Routes = [
     canActivate: [RoleGuard],
     data: {
       roles: [Role.User, Role.Agent, Role.Admin]
-    }
+    },
+  },
+  {
+    path: 'lends',
+    component: LendsListComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.User]
+    },
   },
 ];
 

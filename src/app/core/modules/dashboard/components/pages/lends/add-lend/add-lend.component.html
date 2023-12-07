@@ -31,14 +31,14 @@
           <form [formGroup]="addLendForm" id="myForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline" color="primary">
               <mat-label>Lend to user</mat-label>
-              <mat-select formControlName="borrowerUserId">
+              <mat-select formControlName="userId">
                 <mat-option *ngFor="let user of usersAvailableToLend" [value]="user.id">
                   {{ user.email }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="addLendForm.controls['borrowerUserId'].invalid
-                && (addLendForm.controls['borrowerUserId'].dirty
-                || addLendForm.controls['borrowerUserId'].touched)">
+              <mat-error *ngIf="addLendForm.controls['userId'].invalid
+                && (addLendForm.controls['userId'].dirty
+                || addLendForm.controls['userId'].touched)">
                 Please select a borrower user.
               </mat-error>
             </mat-form-field>
@@ -63,7 +63,7 @@
               <div class="mat-list-item-menu">
                 <mat-list-item>
                   <mat-icon matListItemIcon>account_circle</mat-icon>
-                  <h3 matListItemTitle>{{lend.borrowerEmail}}</h3>
+                  <h3 matListItemTitle>{{lend.user.email}}</h3>
                   <small matListItemLine>Expiration date: {{lend.expirationDate}}</small>  
                 </mat-list-item>
                 <div>

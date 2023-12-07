@@ -76,20 +76,33 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
+    },
+    {
+      "gameId": 5,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 29.99,
+      "id": 10
     }
   ],
   "lends": [
     {
       "gameId": 7,
       "lenderUserId": 1,
-      "borrowerUserId": 2,
+      "userId": 2,
       "id": 2
     },
     {
       "gameId": 6,
       "lenderUserId": 1,
-      "borrowerUserId": 2,
-      "id": 3
+      "userId": 11,
+      "id": 4
+    },
+    {
+      "gameId": 5,
+      "lenderUserId": 1,
+      "userId": 2,
+      "id": 5
     }
   ]
 }

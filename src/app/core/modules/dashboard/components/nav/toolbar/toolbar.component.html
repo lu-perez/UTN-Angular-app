@@ -42,8 +42,8 @@
     </button>
   </mat-menu>
 
-  <button mat-button class="mr-2" routerLink="/dashboard/lend" *ngIf="currentUser?.role === Role.User">
-    Lend
+  <button mat-button class="mr-2" routerLink="/dashboard/lends" *ngIf="currentUser?.role === Role.User">
+    Lends
   </button>
 
   <button mat-icon-button aria-label="logout" (click)="logOut()" *ngIf="currentUser">

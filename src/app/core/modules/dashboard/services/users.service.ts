@@ -22,7 +22,7 @@ export class UsersService {
 
   getUsers(queryParams: {
     role?: Role,
-    id_ne?: number,
+    id_ne?: number | number[],
   }): Observable<SafeUser[]> {
     const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<User[]>(this.url, { params }).pipe(

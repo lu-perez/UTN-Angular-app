@@ -17,11 +17,12 @@ export class GamesListComponent implements OnInit {
   constructor(
     private gamesService: GamesService,
     private authService: AuthService,
-  ) { }
+  ) {
+    this.currentUser = this.authService.getCurrentUser();
+  }
 
   ngOnInit(): void {
     this.getGames();
-    this.currentUser = this.authService.getCurrentUser();
   }
 
   getGames(): void {

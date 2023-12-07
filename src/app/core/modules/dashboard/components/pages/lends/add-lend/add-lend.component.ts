@@ -24,7 +24,6 @@ export class AddLendComponent implements OnInit, OnDestroy {
   users!: SafeUser[];
   lends!: Lend[];
   usersAvailableToLend!: SafeUser[];
-  borrowerUsers!: SafeUser[];
 
   usersSubscription!: Subscription;
   lendsSubscription!: Subscription;
@@ -48,16 +47,10 @@ export class AddLendComponent implements OnInit, OnDestroy {
 
     this.lendsSubscription = this.lendsService.getLends({
       gameId: this.game.id,
+      _expand: 'user',
     }).subscribe(lends => {
       this.lends = lends;
-      this.usersAvailableToLend = this.users.filter(user => !this.lends.some(lend => lend.borrowerUserId === user.id));
-      const borrowerUsers = this.users.filter(user => this.lends.some(lend => lend.borrowerUserId === user.id));
-      this.lends.forEach(lend => {
-        const borrower = borrowerUsers.find(b => b.id === lend.borrowerUserId);
-        if (borrower) {
-          lend.borrowerEmail = borrower.email;
-        }
-      });
+      this.usersAvailableToLend = this.users.filter(user => !this.lends.some(lend => lend.userId === user.id));
     });
   }
 
@@ -74,7 +67,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
     this.addLendForm = this.fb.group({
       gameId: [this.game.id, Validators.required],
       lenderUserId: [this.data.currentUser?.id, Validators.required],
-      borrowerUserId: ['', Validators.required],
+      userId: ['', Validators.required],
       // expirationDate: ['', Validators.required],
     });
   }
