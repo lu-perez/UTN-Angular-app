@@ -23,7 +23,6 @@ export class DialogService {
     private breakpointObserver: BreakpointObserver,
   ) {
     this.isHandset$.subscribe((isHandset) => {
-      console.log(isHandset);
       if (isHandset) {
         this.dialogConfig = {
           maxWidth: '100vW',
