@@ -6,9 +6,9 @@
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 16px 0;
-  min-height: 220px;
+  // min-height: 220px;
 }
 
 .mat-list-item-menu {

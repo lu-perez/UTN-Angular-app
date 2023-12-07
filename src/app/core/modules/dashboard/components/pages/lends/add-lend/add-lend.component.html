@@ -4,7 +4,7 @@
       <button mat-icon-button (click)="close()">
         <mat-icon>arrow_back</mat-icon>
       </button>
-      <h3 class="ml-2 m-0">{{data.title}}</h3>
+      <h3 class="ml-2 m-0">{{ data.title }}</h3>
     </div>
   </div>
 
@@ -16,19 +16,20 @@
           <div mat-subheader>Lend Game Details</div>
           <mat-list-item>
             <mat-icon matListItemIcon>sports_esports</mat-icon>
-            <h3 matListItemTitle>{{game.name}}</h3>
+            <h3 matListItemTitle>{{ game.name }}</h3>
             <small matListItemLine>Game Name</small>
           </mat-list-item>
           <mat-divider></mat-divider>
           <mat-list-item>
             <mat-icon matListItemIcon>category</mat-icon>
-            <h3 matListItemTitle>{{game.genre }}</h3>
+            <h3 matListItemTitle>{{ game.genre }}</h3>
             <small matListItemLine>Game Genre</small>
           </mat-list-item>
         </mat-list>
     
         <ng-container *ngIf="usersAvailableToLend?.length; else noAvailableUsersToLend">
           <form [formGroup]="addLendForm" id="myForm" (ngSubmit)="onSubmit()">
+
             <mat-form-field appearance="outline" color="primary">
               <mat-label>Lend to user</mat-label>
               <mat-select formControlName="userId">
@@ -42,12 +43,33 @@
                 Please select a borrower user.
               </mat-error>
             </mat-form-field>
+
+            <mat-form-field floatLabel="auto" appearance="outline" color="primary">
+              <mat-label>Expiration date</mat-label>
+              <input
+                matInput
+                formControlName="expirationDate"
+                [matDatepicker]="datePickerExpirationDate"
+                [min]="minDatePicker"
+                readonly
+                (click)="datePickerExpirationDate.open()"
+              >
+              <mat-datepicker-toggle [for]="datePickerExpirationDate" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #datePickerExpirationDate></mat-datepicker>
+              <mat-error *ngIf="addLendForm.controls['expirationDate'].invalid
+                && (addLendForm.controls['expirationDate'].dirty
+                || addLendForm.controls['expirationDate'].touched)">
+                Please enter a date.
+              </mat-error>
+            </mat-form-field>
+
             <button
               mat-raised-button
               color="primary"
               type="submit"
               [disabled]="!addLendForm.valid"
             >Lend</button>
+
           </form>
         </ng-container>
         <ng-template #noAvailableUsersToLend>
@@ -63,8 +85,8 @@
               <div class="mat-list-item-menu">
                 <mat-list-item>
                   <mat-icon matListItemIcon>account_circle</mat-icon>
-                  <h3 matListItemTitle>{{lend.user.email}}</h3>
-                  <small matListItemLine>Expiration date: {{lend.expirationDate}}</small>  
+                  <h3 matListItemTitle>{{ lend.user.email }}</h3>
+                  <small matListItemLine>Expiration date: {{ lend.expirationDate | date }}</small>  
                 </mat-list-item>
                 <div>
                   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">

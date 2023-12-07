@@ -22,8 +22,10 @@ export class AddLendComponent implements OnInit, OnDestroy {
   currentUser!: SafeUser | null;
   addLendForm!: FormGroup;
   users!: SafeUser[];
-  lends!: Lend[];
   usersAvailableToLend!: SafeUser[];
+  lends!: Lend[];
+  minDatePicker = new Date();
+  maxDatePicker = new Date();
 
   usersSubscription!: Subscription;
   lendsSubscription!: Subscription;
@@ -68,7 +70,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
       gameId: [this.game.id, Validators.required],
       lenderUserId: [this.data.currentUser?.id, Validators.required],
       userId: ['', Validators.required],
-      // expirationDate: ['', Validators.required],
+      expirationDate: ['', Validators.required],
     });
   }
 

@@ -65,7 +65,6 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       game: this.game,
       currentUser: this.currentUser,
     };
-
     this.dialogService.open(AddPurchaseComponent, { data });
   }
 
