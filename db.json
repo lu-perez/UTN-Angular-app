@@ -76,20 +76,6 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
-    },
-    {
-      "gameId": 5,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": 29.99,
-      "id": 10
-    },
-    {
-      "gameId": 7,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": 39.99,
-      "id": 11
     }
   ],
   "lends": [

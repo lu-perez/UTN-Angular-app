@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Game, Purchase, Role, SafeUser } from 'src/app/shared/types/types';
+import { Game, Role, SafeUser } from 'src/app/shared/types/types';
 import { Observable, Subscription, map, shareReplay } from 'rxjs';
 import { GamesService } from '../../../../services/games.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -22,7 +22,6 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   Role = Role;
   hasPurchasedGame = false;
 
-  currentUserPurchases$!: Observable<Purchase[]>;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -53,9 +52,11 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       });
 
       if (this.currentUser?.role === Role.User) {
-        this.currentUserPurchases$ = this.purchasesService.getPurchases({ userId: this.currentUser?.id });
-        this.purchasesSubscription = this.currentUserPurchases$.subscribe(purchases => {
-          this.hasPurchasedGame = purchases.some(purchase => purchase.gameId === gameId);
+        this.purchasesSubscription = this.purchasesService.getPurchases({
+          userId: this.currentUser?.id,
+          gameId,
+        }).subscribe(purchases => {
+          this.hasPurchasedGame = purchases.length > 0;
         });
       }
     }
