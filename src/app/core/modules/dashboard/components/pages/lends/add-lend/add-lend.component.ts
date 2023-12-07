@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../../services/users.service';
 import { Subscription } from 'rxjs';
 
-interface DialogData {
+export interface AddLendDialogData {
   title: string;
   game: Game;
   currentUser: SafeUser | null;
@@ -34,7 +34,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
     private lendsService: LendsService,
     private usersService: UsersService,
     private dialogRef: MatDialogRef<AddLendComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: AddLendDialogData,
   ) {
     this.game = data.game;
     this.currentUser = data.currentUser;
@@ -95,7 +95,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
   }
 
   close(): void {
-    this.dialogRef.close();
+    this.dialogRef.close('add lend dialog closed');
   }
 
   onDeleteLend(lend: Lend): void {

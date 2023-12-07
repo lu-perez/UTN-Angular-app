@@ -1,14 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game, Role, SafeUser } from 'src/app/shared/types/types';
-import { Observable, Subscription, map, shareReplay } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../../../../services/games.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AddPurchaseComponent } from '../../purchases/add-purchase/add-purchase.component';
+import { AddPurchaseComponent, AddPurchaseDialogData } from '../../purchases/add-purchase/add-purchase.component';
 import { AuthService } from 'src/app/core/modules/auth/services/auth.service';
 import { PurchasesService } from '../../../../services/purchases.service';
-import { AddLendComponent } from '../../lends/add-lend/add-lend.component';
+import { AddLendComponent, AddLendDialogData } from '../../lends/add-lend/add-lend.component';
+import { DialogService } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-game-detail',
@@ -17,19 +16,11 @@ import { AddLendComponent } from '../../lends/add-lend/add-lend.component';
 })
 export class GameDetailComponent implements OnInit, OnDestroy {
   game!: Game;
-  isHandset!: boolean;
   currentUser: SafeUser | null;
   Role = Role;
   hasPurchasedGame = false;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay(),
-    );
-
   private gameSubscription!: Subscription;
-  private isHandsetSubscription!: Subscription;
   private purchasesSubscription!: Subscription;
 
   constructor(
@@ -37,8 +28,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     private gamesService: GamesService,
     private authService: AuthService,
     private purchasesService: PurchasesService,
-    private dialog: MatDialog,
-    private breakpointObserver: BreakpointObserver,
+    private dialogService: DialogService,
   ) {
     this.currentUser = this.authService.getCurrentUser();
   }
@@ -56,74 +46,41 @@ export class GameDetailComponent implements OnInit, OnDestroy {
           userId: this.currentUser?.id,
           gameId,
         }).subscribe(purchases => {
-          this.hasPurchasedGame = purchases.length > 0;
+          this.hasPurchasedGame = purchases?.length > 0;
         });
       }
     }
-
-    this.isHandsetSubscription = this.isHandset$.subscribe((isHandset) => {
-      this.isHandset = isHandset;
-    });
   }
 
   ngOnDestroy(): void {
     this.gameSubscription.unsubscribe();
-    this.isHandsetSubscription.unsubscribe();
     if (this.currentUser?.role === Role.User) {
       this.purchasesSubscription.unsubscribe();
     }
   }
 
   openBuyGameModal(): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = false;
-    dialogConfig.disableClose = true;
-
-    if (this.isHandset) {
-      dialogConfig.maxWidth = '100vW',
-      dialogConfig.width = '100%',
-      dialogConfig.maxHeight = '100vH',
-      dialogConfig.height = '100%',
-      dialogConfig.panelClass = 'slide-in-from-right';
-      dialogConfig.enterAnimationDuration = '0ms';
-      dialogConfig.exitAnimationDuration = '0ms';
-    }
-
-    dialogConfig.data = {
+    const data: AddPurchaseDialogData = {
       title: `Buy ${this.game?.name}`,
       game: this.game,
       currentUser: this.currentUser,
     };
 
-    this.dialog.open(AddPurchaseComponent, dialogConfig);
-  }
-
-  playGame(): void {
-    console.log('play game', this.game);
+    this.dialogService.open(AddPurchaseComponent, { data });
   }
 
   openLendGameModal(): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = false;
-    dialogConfig.disableClose = true;
-
-    if (this.isHandset) {
-      dialogConfig.maxWidth = '100vW',
-      dialogConfig.width = '100%',
-      dialogConfig.maxHeight = '100vH',
-      dialogConfig.height = '100%',
-      dialogConfig.panelClass = 'slide-in-from-right';
-      dialogConfig.enterAnimationDuration = '0ms';
-      dialogConfig.exitAnimationDuration = '0ms';
-    }
-
-    dialogConfig.data = {
+    const data: AddLendDialogData = {
       title: `Lend ${this.game?.name}`,
       game: this.game,
       currentUser: this.currentUser,
     };
+    const dialogdata = this.dialogService.open(AddLendComponent, { data });
+    dialogdata.afterClosed().subscribe(data => console.log(data));
+  }
 
-    this.dialog.open(AddLendComponent, dialogConfig);
+  playGame(): void {
+    console.log('play game', this.game);
   }
 
 }

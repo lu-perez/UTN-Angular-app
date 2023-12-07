@@ -84,6 +84,12 @@
       "lenderUserId": 1,
       "borrowerUserId": 2,
       "id": 2
+    },
+    {
+      "gameId": 6,
+      "lenderUserId": 1,
+      "borrowerUserId": 2,
+      "id": 3
     }
   ]
 }

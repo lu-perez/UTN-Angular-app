@@ -5,7 +5,7 @@ import { Game, PaymentMethod, SafeUser } from 'src/app/shared/types/types';
 import { PurchasesService } from '../../../../services/purchases.service';
 import { Router } from '@angular/router';
 
-interface DialogData {
+export interface AddPurchaseDialogData {
   title: string;
   game: Game;
   currentUser: SafeUser | null;
@@ -26,7 +26,7 @@ export class AddPurchaseComponent implements OnInit {
     private purchasesService: PurchasesService,
     private router: Router,
     private dialogRef: MatDialogRef<AddPurchaseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: AddPurchaseDialogData,
   ) {
     this.game = data.game;
   }
