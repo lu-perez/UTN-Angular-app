@@ -87,16 +87,11 @@
   ],
   "lends": [
     {
-      "gameId": 7,
-      "lenderUserId": 1,
-      "userId": 2,
-      "id": 2
-    },
-    {
       "gameId": 5,
       "lenderUserId": 1,
       "userId": 2,
-      "id": 5
+      "expirationDate": "2023-12-15T03:00:00.000Z",
+      "id": 1
     }
   ]
 }

@@ -78,7 +78,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
     if (this.addLendForm.valid) {
       this.lendsService.addLend(this.addLendForm.value).subscribe({
         complete: () => {
-          this.dialogRef.close();
+          this.dialogRef.close(this.addLendForm.value);
         },
         error: (err) => {
           console.error('Lend creation failed', err);
