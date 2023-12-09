@@ -1,10 +1,26 @@
+mat-card-header {
+  margin-bottom: 16px;
+
+  .title-and-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-16%, 18%);
+  }
+}
+
 mat-card-content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
   img {
-    max-width: 540px;
-    height: auto;
+    height: 26rem;
+    object-fit: cover;
   }
 
   @media (max-width: 600px) {
@@ -14,16 +30,5 @@ mat-card-content {
 
 mat-card-actions {
   justify-content: flex-end;
-}
-
-.title-and-button {
-  display: flex;
-  align-items: center;
-}
-
-.menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(-16%, 18%);
+  padding: 16px;
 }

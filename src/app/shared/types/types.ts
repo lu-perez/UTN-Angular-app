@@ -6,6 +6,7 @@ export type Game = {
   storageRequirements: string;
   genre: string;
   price: string;
+  imageSrc?: string;
 }
 
 export type NewGame = Omit<Game, 'id'>

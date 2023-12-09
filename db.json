@@ -33,31 +33,34 @@
   ],
   "games": [
     {
-      "name": "Space Adventure",
+      "id": 5,
+      "name": "Half Life",
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
       "storageRequirements": "50GB",
       "genre": "Sci-Fi",
       "price": 29.99,
-      "id": 5
+      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
     },
     {
       "id": 6,
-      "name": "Fantasy Quest",
+      "name": "Age Of Empires II",
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
       "storageRequirements": "100GB",
-      "genre": "Fantasy",
-      "price": 49.99
+      "genre": "Strategy",
+      "price": 49.99,
+      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg"
     },
     {
       "id": 7,
-      "name": "Racing Rivals",
+      "name": "Counter Strike GO",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genre": "Racing",
-      "price": 39.99
+      "genre": "Shooter",
+      "price": 39.99,
+      "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
     }
   ],
   "dlcs": [
@@ -92,6 +95,13 @@
       "userId": 2,
       "expirationDate": "2023-12-15T03:00:00.000Z",
       "id": 1
+    },
+    {
+      "gameId": 6,
+      "lenderUserId": 1,
+      "userId": 2,
+      "expirationDate": "2023-12-16T03:00:00.000Z",
+      "id": 2
     }
   ]
 }

@@ -21,7 +21,8 @@
     </mat-card-header>
   
     <mat-card-content>
-      <img mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
+      <img *ngIf="game.imageSrc" mat-card-image src="{{game.imageSrc}}" alt="Photo of game">
+      <img *ngIf="!game.imageSrc" mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
       <mat-list>
         <div mat-subheader>Minimum requirements</div>
         <mat-list-item>
