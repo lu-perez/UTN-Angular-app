@@ -61,6 +61,16 @@
       "genre": "Shooter",
       "price": 39.99,
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
+    },
+    {
+      "name": "Minecraft",
+      "cpuRequirements": "Intel Core i7",
+      "memoryRequirements": "12GB RAM",
+      "storageRequirements": "80GB",
+      "genre": "a",
+      "price": "40",
+      "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg",
+      "id": 8
     }
   ],
   "dlcs": [

@@ -28,7 +28,8 @@ export class AddGameComponent implements OnInit {
       memoryRequirements: ['', Validators.required],
       storageRequirements: ['', Validators.required],
       genre: ['', Validators.required],
-      price: ['', [Validators.required]],
+      price: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      imageSrc: [''],
     });
   }
 
