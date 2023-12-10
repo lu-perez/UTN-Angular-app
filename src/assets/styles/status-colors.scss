@@ -1,0 +1,41 @@
+$success: #388e3c;
+$warning: #fbc02d;
+$error: #d32f2f;
+
+.success-class,
+.success-class:hover {
+  color: $success !important;
+}
+
+.success-class-bg {
+  background-color: $success !important;
+}
+
+.warning-class,
+.warning-class:hover {
+  color: $warning !important;
+}
+
+.warning-class-bg {
+  background-color: $warning !important;
+  color: #000000;
+}
+
+.error-class,
+.error-class:hover {
+  color: $error !important;
+}
+
+.error-class-bg {
+  background-color: $error !important;
+}
+
+.success-snackbar {
+  --mdc-snackbar-container-color: #388e3c !important;
+  --mdc-snackbar-supporting-text-color: white !important;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #d32f2f !important;
+  --mdc-snackbar-supporting-text-color: white !important;
+}

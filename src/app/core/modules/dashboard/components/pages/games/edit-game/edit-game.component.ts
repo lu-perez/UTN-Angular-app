@@ -4,6 +4,7 @@ import { GamesService } from '../../../../services/games.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from 'src/app/shared/types/types';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-game',
@@ -21,6 +22,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private gamesService: GamesService,
     private router: Router,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
       storageRequirements: [this.game?.storageRequirements, Validators.required],
       genre: [this.game?.genre, Validators.required],
       price: [this.game?.price, [Validators.required]],
+      imageSrc: [this.game?.imageSrc],
     });
   }
 
@@ -54,6 +57,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
       this.gamesService.updateGame(this.game?.id, this.editGameForm.value).subscribe({
         complete: () => {
           this.router.navigate(['/dashboard/games']);
+          this.snackBar.open(`Game ${this.editGameForm.get('name')?.value} updated`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('Game updating failed', err);

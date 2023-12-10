@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-game',
@@ -15,6 +16,7 @@ export class AddGameComponent implements OnInit {
     private fb: FormBuilder,
     private gamesService: GamesService,
     private router: Router,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class AddGameComponent implements OnInit {
       this.gamesService.addGame(this.addGameForm.value).subscribe({
         complete: () => {
           this.router.navigate(['/dashboard/games']);
+          this.snackBar.open(`Game ${this.addGameForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('Game creation failed', err);

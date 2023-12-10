@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Game, PaymentMethod, SafeUser } from 'src/app/shared/types/types';
 import { PurchasesService } from '../../../../services/purchases.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface AddPurchaseDialogData {
   title: string;
@@ -25,6 +26,7 @@ export class AddPurchaseComponent implements OnInit {
     private fb: FormBuilder,
     private purchasesService: PurchasesService,
     private router: Router,
+    private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<AddPurchaseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AddPurchaseDialogData,
   ) {
@@ -50,6 +52,7 @@ export class AddPurchaseComponent implements OnInit {
         complete: () => {
           this.router.navigate(['/dashboard/games']);
           this.dialogRef.close();
+          this.snackBar.open(`Game ${this.game.name} purchased`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('Purchase creation failed', err);

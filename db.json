@@ -63,22 +63,22 @@
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
     },
     {
+      "id": 8,
       "name": "Minecraft",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genre": "a",
+      "genre": "A",
       "price": "40",
-      "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg",
-      "id": 8
+      "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg"
     }
   ],
   "dlcs": [
     {
       "id": 8,
-      "name": "DLC Space Adventure",
+      "name": "AOE Return To Rome",
       "price": 9.99,
-      "relatedGameId": 5
+      "relatedGameId": 6
     }
   ],
   "genres": [],
@@ -103,6 +103,13 @@
       "paymentMethod": "Cash",
       "pricePaid": "40",
       "id": 11
+    },
+    {
+      "gameId": 7,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 39.99,
+      "id": 12
     }
   ],
   "lends": [

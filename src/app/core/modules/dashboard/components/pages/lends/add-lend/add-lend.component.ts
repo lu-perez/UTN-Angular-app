@@ -6,6 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../../services/users.service';
 import { Subscription } from 'rxjs';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface AddLendDialogData {
   title: string;
@@ -35,6 +36,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private lendsService: LendsService,
     private usersService: UsersService,
+    private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<AddLendComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AddLendDialogData,
   ) {
@@ -80,6 +82,8 @@ export class AddLendComponent implements OnInit, OnDestroy {
       this.lendsService.addLend(this.addLendForm.value).subscribe({
         complete: () => {
           this.dialogRef.close(this.addLendForm.value);
+          const borrowerUser = this.usersAvailableToLend.find(user => user.id === this.addLendForm.get('userId')?.value);
+          this.snackBar.open(`${this.game.name} lended to ${borrowerUser?.email}`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('Lend creation failed', err);
@@ -98,6 +102,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
     this.lendsService.deleteLend(lend.id).subscribe({
       complete: () => {
         this.dialogRef.close();
+        this.snackBar.open('Lend deleted', '', { duration: 4000, panelClass: ['success-snackbar'] });
       },
       error: (err) => {
         console.error(err);

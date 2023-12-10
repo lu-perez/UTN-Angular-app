@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { GamesService } from 'src/app/core/modules/dashboard/services/games.service';
 import { ConfirmModalComponent } from 'src/app/shared/components/modal/confirm-modal/confirm-modal.component';
 import { Game, SafeUser, Role } from 'src/app/shared/types/types';
@@ -20,6 +21,7 @@ export class GameCardComponent {
   constructor(
     private dialog: MatDialog,
     private gamesService: GamesService,
+    private snackBar: MatSnackBar,
   ) { }
 
   deleteGame() {
@@ -36,6 +38,7 @@ export class GameCardComponent {
         this.gamesService.deleteGame(this.game.id).subscribe({
           complete: () => {
             this.refreshList.emit();
+            this.snackBar.open(`Game ${this.game.name} deleted`, '', { duration: 4000, panelClass: ['success-snackbar'] });
           },
           error: (err) => {
             console.error(err);
