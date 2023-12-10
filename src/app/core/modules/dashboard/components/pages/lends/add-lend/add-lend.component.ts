@@ -5,6 +5,7 @@ import { LendsService } from '../../../../services/lends.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../../services/users.service';
 import { Subscription } from 'rxjs';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 export interface AddLendDialogData {
   title: string;
@@ -25,7 +26,7 @@ export class AddLendComponent implements OnInit, OnDestroy {
   usersAvailableToLend!: SafeUser[];
   lends!: Lend[];
   minDatePicker = new Date();
-  maxDatePicker = new Date();
+  selectedTab = 'Lend';
 
   usersSubscription!: Subscription;
   lendsSubscription!: Subscription;
@@ -102,5 +103,9 @@ export class AddLendComponent implements OnInit, OnDestroy {
         console.error(err);
       }
     });
+  }
+
+  onTabChange(event: MatTabChangeEvent): void {
+    this.selectedTab = event.tab.textLabel;
   }
 }

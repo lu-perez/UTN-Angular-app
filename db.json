@@ -96,6 +96,13 @@
       "paymentMethod": "Cash",
       "pricePaid": 29.99,
       "id": 10
+    },
+    {
+      "gameId": 8,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": "40",
+      "id": 11
     }
   ],
   "lends": [

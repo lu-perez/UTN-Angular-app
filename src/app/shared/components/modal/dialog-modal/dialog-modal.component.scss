@@ -1,10 +1,11 @@
-mat-dialog-actions {
-  display: flex;
-  justify-content: space-between;
+.dialog-header {
+  // display: flex;
+  // justify-content: space-between;
+  padding: 8px;
 }
 
 mat-dialog-content {
-  min-height: 62vh;
+  // min-height: 62vh;
 
   @media (max-width: 600px) {
     min-height: 80vh;
@@ -13,4 +14,9 @@ mat-dialog-content {
   @media (min-width: 600px) {
     min-width: 500px;
   }
+}
+
+mat-dialog-actions {
+  display: block;
+  padding: 16px;
 }

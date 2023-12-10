@@ -1,7 +1,10 @@
-<mat-dialog-actions>
-  <ng-content select=".app-dialog-actions"></ng-content>
-</mat-dialog-actions>
+<div class="dialog-header">
+  <ng-content select=".app-dialog-header"></ng-content>
+</div>
 <mat-divider></mat-divider>
 <mat-dialog-content>
   <ng-content select=".app-dialog-content"></ng-content>
 </mat-dialog-content>
+<mat-dialog-actions>
+  <ng-content select=".app-dialog-actions"></ng-content>
+</mat-dialog-actions>

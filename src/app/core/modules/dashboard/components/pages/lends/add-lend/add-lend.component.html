@@ -1,5 +1,5 @@
 <app-dialog-modal>
-  <div class="app-dialog-actions">
+  <div class="app-dialog-header">
     <div class="title-and-button">
       <button mat-icon-button (click)="close()">
         <mat-icon>arrow_back</mat-icon>
@@ -9,8 +9,7 @@
   </div>
 
   <div class="app-dialog-content">
-
-    <mat-tab-group animationDuration="0ms">
+    <mat-tab-group animationDuration="0ms" (selectedTabChange)="onTabChange($event)">
       <mat-tab label="Lend">
         <mat-list class="mb-2">
           <div mat-subheader>Lend Game Details</div>
@@ -63,15 +62,9 @@
               </mat-error>
             </mat-form-field>
 
-            <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="!addLendForm.valid"
-            >Lend</button>
-
           </form>
         </ng-container>
+
         <ng-template #noAvailableUsersToLend>
           <p>No available users to lend this game</p>
         </ng-template>
@@ -109,6 +102,15 @@
         </mat-list>
       </mat-tab>
     </mat-tab-group>
+  </div>
 
+  <div class="app-dialog-actions" *ngIf="selectedTab === 'Lend'">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      form="myForm"
+      [disabled]="!addLendForm.valid"
+    >Lend</button>
   </div>
 </app-dialog-modal>
