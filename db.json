@@ -79,6 +79,24 @@
       "name": "AOE Return To Rome",
       "price": 9.99,
       "relatedGameId": 6
+    },
+    {
+      "name": "asdasda",
+      "price": "123123132",
+      "relatedGameId": "qweqweqwe",
+      "id": 9
+    },
+    {
+      "name": "asdasdasdas",
+      "price": "ASDASDASDASD",
+      "relatedGameId": 5,
+      "id": 10
+    },
+    {
+      "name": "WWWWWW",
+      "price": "123",
+      "relatedGameId": 8,
+      "id": 11
     }
   ],
   "genres": [],

@@ -28,15 +28,18 @@
             Please enter the price.
           </mat-error>
         </mat-form-field>
-  
-        <mat-form-field appearance="outline" floatLabel="auto">
-          <mat-label for="relatedGameId">Related Game</mat-label>
-          <input matInput type="text" id="relatedGameId" formControlName="relatedGameId" />
+
+        <mat-form-field appearance="outline" color="primary">
+          <mat-label>Related Game</mat-label>
+          <mat-select formControlName="relatedGameId">
+            <mat-option *ngFor="let game of games$ | async" [value]="game.id">
+              {{ game.name }}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="addDLCForm.controls['relatedGameId'].invalid
             && (addDLCForm.controls['relatedGameId'].dirty
-            || addDLCForm.controls['relatedGameId'].touched)"
-          >
-            Please enter the related game.
+            || addDLCForm.controls['relatedGameId'].touched)">
+            Please select the related game.
           </mat-error>
         </mat-form-field>
   
