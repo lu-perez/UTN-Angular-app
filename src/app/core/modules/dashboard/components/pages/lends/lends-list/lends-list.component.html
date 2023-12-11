@@ -10,25 +10,41 @@
 </ng-container>
 
 <ng-container *ngIf="lends?.length; else noLends">
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="gameName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game name</th>
-        <td mat-cell *matCellDef="let element"> {{ element.gameName }} </td>
-      </ng-container>
-      <ng-container matColumnDef="borrowerUserEmail">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower User Email</th>
-        <td mat-cell *matCellDef="let element"> {{ element.borrowerUserEmail }} </td>
-      </ng-container>
-      <ng-container matColumnDef="expirationDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Expiration Date</th>
-        <td mat-cell *matCellDef="let element"> {{ element.expirationDate }} </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let lend; columns: displayedColumns;" (click)="lendDetails(lend)"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
-  </div>
+  <mat-card>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="gameName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Game name</th>
+          <td mat-cell *matCellDef="let element"> {{ element.gameName }} </td>
+        </ng-container>
+        <ng-container matColumnDef="borrowerUserEmail">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower User Email</th>
+          <td mat-cell *matCellDef="let element"> {{ element.borrowerUserEmail }} </td>
+        </ng-container>
+        <ng-container matColumnDef="expirationDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Expiration Date</th>
+          <td mat-cell *matCellDef="let element"> {{ element.expirationDate }} </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="menu-dialog">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteLend(element)">
+                <mat-icon color="warn">delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let lend; columns: displayedColumns;" (click)="lendDetails(lend)"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
 </ng-container>
 
 <ng-template #noLends>
