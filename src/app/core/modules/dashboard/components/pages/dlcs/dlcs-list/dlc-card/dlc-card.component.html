@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{dlc.name}}</mat-card-title>
+    <mat-card-subtitle>{{dlc.game?.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="dlc.imageSrc" mat-card-image src="{{dlc.imageSrc}}" alt="Photo of game">
+  <img *ngIf="!dlc.imageSrc" mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
+  <mat-card-content>
+    <h3><b>{{dlc.price | currency }}</b></h3>
+  </mat-card-content>
+  <mat-card-actions>
+    <ng-container *ngIf="currentUser?.role === Role.User">
+      <button mat-stroked-button color="primary" routerLink="/dashboard/dlcs/{{dlc.id}}">View</button>
+    </ng-container>
+    <ng-container *ngIf="currentUser?.role === Role.Agent">
+      <button mat-icon-button color="accent"
+        routerLink="/dashboard/dlcs/edit/{{dlc.id}}"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button color="warn" (click)="deleteDLC()"><mat-icon>delete</mat-icon></button>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

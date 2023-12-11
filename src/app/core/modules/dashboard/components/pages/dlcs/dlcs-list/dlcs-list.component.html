@@ -1,5 +1,9 @@
-<div *ngIf="DLCs$ | async" class="mt-4">
-  <div *ngFor="let DLC of DLCs$ | async">
-    <P>{{DLC.name}}</P>
-  </div>
+<div class="responsive-grid mt-4" *ngIf="DLCs$ | async">
+  <app-dlc-card
+    *ngFor="let dlc of DLCs$ | async"
+    [dlc]="dlc"
+    [currentUser]="currentUser"
+    (refreshList)="getDLCs()"
+  >
+  </app-dlc-card>
 </div>

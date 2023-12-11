@@ -31,14 +31,14 @@
 
         <mat-form-field appearance="outline" color="primary">
           <mat-label>Related Game</mat-label>
-          <mat-select formControlName="relatedGameId">
+          <mat-select formControlName="gameId">
             <mat-option *ngFor="let game of games$ | async" [value]="game.id">
               {{ game.name }}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="addDLCForm.controls['relatedGameId'].invalid
-            && (addDLCForm.controls['relatedGameId'].dirty
-            || addDLCForm.controls['relatedGameId'].touched)">
+          <mat-error *ngIf="addDLCForm.controls['gameId'].invalid
+            && (addDLCForm.controls['gameId'].dirty
+            || addDLCForm.controls['gameId'].touched)">
             Please select the related game.
           </mat-error>
         </mat-form-field>

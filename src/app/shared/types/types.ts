@@ -15,7 +15,8 @@ export type DLC = Omit<
   Game,
   'cpuRequirements' | 'memoryRequirements' | 'storageRequirements' | 'genre'
 > & {
-  relatedGameId: number;
+  gameId: number;
+  game?: Game;
 }
 
 export type NewDLC = Omit<DLC, 'id'>

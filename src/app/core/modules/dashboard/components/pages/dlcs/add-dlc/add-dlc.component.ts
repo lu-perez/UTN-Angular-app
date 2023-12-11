@@ -35,7 +35,7 @@ export class AddDlcComponent implements OnInit {
     this.addDLCForm = this.fb.group({
       name: ['', Validators.required],
       price: ['', [Validators.required]],
-      relatedGameId: ['', [Validators.required]],
+      gameId: ['', [Validators.required]],
     });
   }
 
