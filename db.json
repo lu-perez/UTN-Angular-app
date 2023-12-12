@@ -113,16 +113,6 @@
       "userId": 2,
       "expirationDate": "2023-12-15T03:00:00.000Z",
       "id": 1
-<<<<<<< HEAD
-    },
-    {
-      "gameId": 7,
-      "lenderUserId": 1,
-      "userId": 2,
-      "expirationDate": "2023-12-27T03:00:00.000Z",
-      "id": 2
-=======
->>>>>>> dev
     }
   ]
 }
