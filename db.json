@@ -87,13 +87,6 @@
       "price": 9.99,
       "gameId": 6,
       "imageSrc": "https://cdn.ageofempires.com/aoe/wp-content/uploads/2022/04/plymouth-key-art-titled-hero-art-1920x1080-1-1080x608.webp"
-    },
-    {
-      "name": "A",
-      "price": "123123",
-      "gameId": 7,
-      "imageSrc": "https://cdn-icons-png.flaticon.com/512/25/25645.png",
-      "id": 9
     }
   ],
   "genres": [],
