@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DLCsService } from '../../../../services/dlcs.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Game } from 'src/app/shared/types/types';
+import { GamesService } from '../../../../services/games.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-dlc',
@@ -12,12 +15,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddDlcComponent implements OnInit {
   addDLCForm!: FormGroup;
 
+  games$!: Observable<Game[] | null>;
+
   constructor(
     private fb: FormBuilder,
     private dlcsService: DLCsService,
+    private gamesService: GamesService,
     private router: Router,
     private snackBar: MatSnackBar,
-  ) { }
+  ) {
+    this.games$ = this.gamesService.getGames();
+  }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -26,8 +34,9 @@ export class AddDlcComponent implements OnInit {
   initializeForm(): void {
     this.addDLCForm = this.fb.group({
       name: ['', Validators.required],
-      price: ['', [Validators.required]],
-      relatedGameId: ['', [Validators.required]],
+      price: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      gameId: ['', [Validators.required]],
+      imageSrc: [''],
     });
   }
 

@@ -78,7 +78,22 @@
       "id": 8,
       "name": "AOE Return To Rome",
       "price": 9.99,
-      "relatedGameId": 6
+      "gameId": 6,
+      "imageSrc": "https://gaming-cdn.com/images/products/14060/616x353/age-of-empires-ii-definitive-edition-return-of-rome-pc-game-steam-cover.jpg?v=1697798932"
+    },
+    {
+      "id": 8,
+      "name": "AOE The Mountain Royals",
+      "price": 9.99,
+      "gameId": 6,
+      "imageSrc": "https://cdn.ageofempires.com/aoe/wp-content/uploads/2022/04/plymouth-key-art-titled-hero-art-1920x1080-1-1080x608.webp"
+    },
+    {
+      "name": "A",
+      "price": "123123",
+      "gameId": 7,
+      "imageSrc": "https://cdn-icons-png.flaticon.com/512/25/25645.png",
+      "id": 9
     }
   ],
   "genres": [],
@@ -89,27 +104,6 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
-    },
-    {
-      "gameId": 5,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": 29.99,
-      "id": 10
-    },
-    {
-      "gameId": 8,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": "40",
-      "id": 11
-    },
-    {
-      "gameId": 7,
-      "userId": 1,
-      "paymentMethod": "Cash",
-      "pricePaid": 39.99,
-      "id": 12
     }
   ],
   "lends": [
@@ -119,6 +113,7 @@
       "userId": 2,
       "expirationDate": "2023-12-15T03:00:00.000Z",
       "id": 1
+<<<<<<< HEAD
     },
     {
       "gameId": 7,
@@ -126,6 +121,8 @@
       "userId": 2,
       "expirationDate": "2023-12-27T03:00:00.000Z",
       "id": 2
+=======
+>>>>>>> dev
     }
   ]
 }
