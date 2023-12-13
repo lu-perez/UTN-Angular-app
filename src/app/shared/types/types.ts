@@ -55,7 +55,7 @@ export type Purchase = {
   userId: number;
   user?: User;
   paymentMethod: PaymentMethod;
-  pricePaid: string;
+  pricePaid: number;
 }
 
 export type NewPurchase = Omit<Purchase, 'id'>

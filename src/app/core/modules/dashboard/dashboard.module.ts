@@ -26,6 +26,7 @@ import { UsersService } from './services/users.service';
 import { LendsListComponent } from './components/pages/lends/lends-list/lends-list.component';
 import { DlcCardComponent } from './components/pages/dlcs/dlcs-list/dlc-card/dlc-card.component';
 import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
+import { PurchasesListComponent } from './components/pages/purchases/purchases-list/purchases-list.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detai
     LendsListComponent,
     DlcCardComponent,
     DlcDetailComponent,
+    PurchasesListComponent,
   ],
   imports: [
     CommonModule,

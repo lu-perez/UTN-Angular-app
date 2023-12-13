@@ -46,6 +46,10 @@
     Lends
   </button>
 
+  <button mat-button class="mr-2" routerLink="/dashboard/purchases" *ngIf="currentUser?.role === Role.User">
+    Purchases
+  </button>
+
   <button mat-icon-button aria-label="logout" (click)="logOut()" *ngIf="currentUser">
     <mat-icon>logout</mat-icon>
   </button>

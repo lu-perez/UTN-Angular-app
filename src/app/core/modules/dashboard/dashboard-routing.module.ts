@@ -14,6 +14,7 @@ import { AddDlcComponent } from './components/pages/dlcs/add-dlc/add-dlc.compone
 import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.component';
 import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
 import { LendsListComponent } from './components/pages/lends/lends-list/lends-list.component';
+import { PurchasesListComponent } from './components/pages/purchases/purchases-list/purchases-list.component';
 
 const routes: Routes = [
   {
@@ -112,6 +113,14 @@ const routes: Routes = [
       roles: [Role.User]
     },
   },
+  {
+    path: 'purchases',
+    component: PurchasesListComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [Role.User]
+    }
+  }
 ];
 
 @NgModule({
