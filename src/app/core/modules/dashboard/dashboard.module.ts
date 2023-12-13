@@ -15,7 +15,6 @@ import { AddGameComponent } from './components/pages/games/add-game/add-game.com
 import { GamesService } from './services/games.service';
 import { AddDlcComponent } from './components/pages/dlcs/add-dlc/add-dlc.component';
 import { EditDlcComponent } from './components/pages/dlcs/edit-dlc/edit-dlc.component';
-import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
 import { DlcsListComponent } from './components/pages/dlcs/dlcs-list/dlcs-list.component';
 import { DLCsService } from './services/dlcs.service';
 import { GameCardComponent } from './components/pages/games/games-list/game-card/game-card.component';
@@ -26,6 +25,7 @@ import { LendsService } from './services/lends.service';
 import { UsersService } from './services/users.service';
 import { LendsListComponent } from './components/pages/lends/lends-list/lends-list.component';
 import { DlcCardComponent } from './components/pages/dlcs/dlcs-list/dlc-card/dlc-card.component';
+import { DlcDetailComponent } from './components/pages/dlcs/dlc-detail/dlc-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,13 +40,13 @@ import { DlcCardComponent } from './components/pages/dlcs/dlcs-list/dlc-card/dlc
     EditGenderComponent,
     AddDlcComponent,
     EditDlcComponent,
-    DlcDetailComponent,
     DlcsListComponent,
     GameCardComponent,
     AddPurchaseComponent,
     AddLendComponent,
     LendsListComponent,
     DlcCardComponent,
+    DlcDetailComponent,
   ],
   imports: [
     CommonModule,

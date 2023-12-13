@@ -40,15 +40,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       this.gameSubscription = this.gamesService.getGame(gameId).subscribe(game => {
         this.game = game;
       });
-
-      if (this.currentUser?.role === Role.User) {
-        this.purchasesSubscription = this.purchasesService.getPurchases({
-          userId: this.currentUser?.id,
-          gameId,
-        }).subscribe(purchases => {
-          this.hasPurchasedGame = purchases?.length > 0;
-        });
-      }
+      this.getPurchases(gameId);
     }
   }
 
@@ -56,6 +48,17 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     this.gameSubscription.unsubscribe();
     if (this.currentUser?.role === Role.User) {
       this.purchasesSubscription.unsubscribe();
+    }
+  }
+
+  getPurchases(gameId: number): void {
+    if (this.currentUser?.role === Role.User) {
+      this.purchasesSubscription = this.purchasesService.getPurchases({
+        userId: this.currentUser?.id,
+        gameId,
+      }).subscribe(purchases => {
+        this.hasPurchasedGame = purchases?.length > 0;
+      });
     }
   }
 

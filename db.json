@@ -13,19 +13,19 @@
       "role": "User"
     },
     {
-      "id": 11,
+      "id": 3,
       "email": "user3@user3.com",
       "password": "user3",
       "role": "User"
     },
     {
-      "id": 3,
+      "id": 4,
       "email": "admin@admin.com",
       "password": "admin",
       "role": "Admin"
     },
     {
-      "id": 4,
+      "id": 5,
       "email": "agent@agent.com",
       "password": "agent",
       "role": "Agent"
@@ -33,7 +33,7 @@
   ],
   "games": [
     {
-      "id": 5,
+      "id": 1,
       "name": "Half Life",
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
@@ -43,7 +43,7 @@
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
     },
     {
-      "id": 6,
+      "id": 2,
       "name": "Age Of Empires II",
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
@@ -53,7 +53,7 @@
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg"
     },
     {
-      "id": 7,
+      "id": 3,
       "name": "Counter Strike GO",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
@@ -63,7 +63,7 @@
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
     },
     {
-      "id": 8,
+      "id": 4,
       "name": "Minecraft",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
@@ -75,44 +75,44 @@
   ],
   "dlcs": [
     {
-      "id": 8,
+      "id": 1,
       "name": "AOE Return To Rome",
       "price": 9.99,
-      "gameId": 6,
+      "gameId": 2,
       "imageSrc": "https://gaming-cdn.com/images/products/14060/616x353/age-of-empires-ii-definitive-edition-return-of-rome-pc-game-steam-cover.jpg?v=1697798932"
     },
     {
-      "id": 8,
+      "id": 2,
       "name": "AOE The Mountain Royals",
       "price": 9.99,
-      "gameId": 6,
+      "gameId": 2,
       "imageSrc": "https://cdn.ageofempires.com/aoe/wp-content/uploads/2022/04/plymouth-key-art-titled-hero-art-1920x1080-1-1080x608.webp"
-    },
-    {
-      "name": "A",
-      "price": "123123",
-      "gameId": 7,
-      "imageSrc": "https://cdn-icons-png.flaticon.com/512/25/25645.png",
-      "id": 9
     }
   ],
   "genres": [],
   "purchases": [
     {
-      "id": 9,
-      "gameId": 6,
+      "id": 1,
+      "gameId": 2,
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
+    },
+    {
+      "id": 2,
+      "dlcId": 1,
+      "userId": 1,
+      "paymentMethod": "Credit Card",
+      "pricePaid": 9.99
     }
   ],
   "lends": [
     {
-      "gameId": 5,
+      "id": 1,
+      "gameId": 2,
       "lenderUserId": 1,
       "userId": 2,
-      "expirationDate": "2023-12-15T03:00:00.000Z",
-      "id": 1
+      "expirationDate": "2023-12-15T03:00:00.000Z"
     }
   ]
 }

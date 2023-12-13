@@ -1,0 +1,34 @@
+mat-card-header {
+  margin-bottom: 16px;
+
+  .title-and-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-16%, 18%);
+  }
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-around;
+
+  img {
+    height: 26rem;
+    object-fit: cover;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+mat-card-actions {
+  justify-content: flex-end;
+  padding: 16px;
+}
