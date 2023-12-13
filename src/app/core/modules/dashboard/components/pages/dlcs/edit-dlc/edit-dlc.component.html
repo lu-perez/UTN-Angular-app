@@ -1,1 +1,54 @@
-<p>edit-dlc works!</p>
+<div class="content-center" *ngIf="dlc">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Update {{dlc.name}}</mat-card-subtitle>
+      <mat-card-title>Update DLC</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="editDLCForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="name">DLC Name</mat-label>
+          <input matInput type="text" id="name" formControlName="name" />
+          <mat-error *ngIf="editDLCForm.controls['name'].invalid
+            && (editDLCForm.controls['name'].dirty
+            || editDLCForm.controls['name'].touched)">
+            Please enter a DLC name.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="price">Price</mat-label>
+          <input matInput type="text" id="price" formControlName="price" />
+          <mat-error *ngIf="editDLCForm.controls['price'].invalid
+            && (editDLCForm.controls['price'].dirty
+            || editDLCForm.controls['price'].touched)">
+            Please enter the price.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" color="primary">
+          <mat-label>Related Game</mat-label>
+          <mat-select formControlName="gameId">
+            <mat-option *ngFor="let game of games$ | async" [value]="game.id">
+              {{ game.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="editDLCForm.controls['gameId'].invalid
+            && (editDLCForm.controls['gameId'].dirty
+            || editDLCForm.controls['gameId'].touched)">
+            Please select the related game.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="imageSrc">Image</mat-label>
+          <input matInput type="text" id="imageSrc" formControlName="imageSrc" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!editDLCForm.valid">Update</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -34,7 +34,7 @@ export class AddDlcComponent implements OnInit {
   initializeForm(): void {
     this.addDLCForm = this.fb.group({
       name: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       gameId: ['', [Validators.required]],
       imageSrc: [''],
     });
@@ -45,7 +45,7 @@ export class AddDlcComponent implements OnInit {
       this.dlcsService.addDLC(this.addDLCForm.value).subscribe({
         complete: () => {
           this.router.navigate(['/dashboard/dlcs']);
-          this.snackBar.open(`Game ${this.addDLCForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
+          this.snackBar.open(`DLC ${this.addDLCForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('DLC creation failed', err);

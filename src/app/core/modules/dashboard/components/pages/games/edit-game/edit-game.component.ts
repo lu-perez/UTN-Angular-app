@@ -47,7 +47,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
       memoryRequirements: [this.game?.memoryRequirements, Validators.required],
       storageRequirements: [this.game?.storageRequirements, Validators.required],
       genre: [this.game?.genre, Validators.required],
-      price: [this.game?.price, [Validators.required]],
+      price: [this.game?.price, [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       imageSrc: [this.game?.imageSrc],
     });
   }

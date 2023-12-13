@@ -32,4 +32,8 @@ export class DLCsService {
   deleteDLC(dlcId: number): Observable<DLC> {
     return this.http.delete<DLC>(`${this.url}/${dlcId}`);
   }
+
+  updateDLC(dlcId: number, data: DLC): Observable<DLC> {
+    return this.http.put<DLC>(`${this.url}/${dlcId}`, data);
+  }
 }

@@ -75,11 +75,11 @@
   ],
   "dlcs": [
     {
-      "id": 1,
       "name": "AOE Return To Rome",
-      "price": 9.99,
+      "price": "9",
       "gameId": 2,
-      "imageSrc": "https://gaming-cdn.com/images/products/14060/616x353/age-of-empires-ii-definitive-edition-return-of-rome-pc-game-steam-cover.jpg?v=1697798932"
+      "imageSrc": "https://gaming-cdn.com/images/products/14060/616x353/age-of-empires-ii-definitive-edition-return-of-rome-pc-game-steam-cover.jpg?v=1697798932",
+      "id": 1
     },
     {
       "id": 2,
@@ -97,6 +97,13 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
+    },
+    {
+      "gameId": 3,
+      "userId": 1,
+      "paymentMethod": "Cash",
+      "pricePaid": 39.99,
+      "id": 2
     }
   ],
   "lends": [
