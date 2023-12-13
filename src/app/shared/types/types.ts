@@ -48,8 +48,10 @@ export enum PaymentMethod {
 
 export type Purchase = {
   id: number;
-  gameId: number;
+  gameId?: number;
   game?: Game;
+  dlcId?: number;
+  dlc?: DLC;
   userId: number;
   user?: User;
   paymentMethod: PaymentMethod;

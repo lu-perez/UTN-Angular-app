@@ -17,6 +17,7 @@ export class PurchasesService {
   getPurchases(queryParams: {
     userId?: number,
     gameId?: number,
+    dlcId?: number,
   }): Observable<Purchase[]> {
     const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<Purchase[]>(this.url, { params });

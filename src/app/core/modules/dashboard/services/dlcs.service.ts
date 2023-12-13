@@ -10,8 +10,12 @@ export class DLCsService {
 
   constructor(private http: HttpClient) { }
 
-  getDLC(dlcId: number): Observable<DLC> {
-    return this.http.get<DLC>(`${this.url}/${dlcId}`);
+  getDLC(queryParams: {
+    id: number,
+    _expand?: string | string[],
+  }): Observable<DLC[]> {
+    const params = new HttpParams({ fromObject: queryParams });
+    return this.http.get<DLC[]>(this.url, { params });
   }
 
   getDLCs(queryParams: {

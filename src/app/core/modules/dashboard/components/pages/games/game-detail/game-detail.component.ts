@@ -40,7 +40,6 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       this.gameSubscription = this.gamesService.getGame(gameId).subscribe(game => {
         this.game = game;
       });
-
       if (this.currentUser?.role === Role.User) {
         this.purchasesSubscription = this.purchasesService.getPurchases({
           userId: this.currentUser?.id,
@@ -62,6 +61,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   openBuyGameModal(): void {
     const data: AddPurchaseDialogData = {
       title: `Buy ${this.game?.name}`,
+      purchaseType: 'Game',
       game: this.game,
       currentUser: this.currentUser,
     };

@@ -1,1 +1,54 @@
-<p>dlc-detail works!</p>
+<div class="mt-4">
+  <mat-card *ngIf="dlc">
+    <mat-card-header>
+      <div class="title-and-button">
+        <button mat-icon-button routerLink="/dashboard/dlcs">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h3 class="ml-2 m-0">{{dlc.name}}</h3>
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <img *ngIf="dlc.imageSrc" mat-card-image src="{{dlc.imageSrc}}" alt="Photo of DLC">
+      <img *ngIf="!dlc.imageSrc" mat-card-image src="/assets/images/no-image.jpg" alt="Photo of game">
+      <mat-list>
+        <div mat-subheader>Game requirements</div>
+        <mat-list-item>
+          <mat-icon matListItemIcon>bolt</mat-icon>
+          <h3 matListItemTitle>{{dlc.game?.cpuRequirements}}</h3>
+          <small matListItemLine>CPU Requirements</small>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>memory</mat-icon>
+          <h3 matListItemTitle>{{dlc.game?.memoryRequirements}}</h3>
+          <small matListItemLine>Memory Requirements</small>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListItemIcon>storage</mat-icon>
+          <h3 matListItemTitle>{{dlc.game?.storageRequirements}}</h3>
+          <small matListItemLine>Storage Requirements</small>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        color="primary"
+        *ngIf="currentUser?.role === Role.User && !hasPurchasedDLC"
+        (click)="openBuyDLCModal()"
+      >Buy this DLC</button>
+
+      <button
+        mat-flat-button
+        color="primary"
+        *ngIf="currentUser?.role === Role.User && hasPurchasedDLC"
+        (click)="playGame()"
+      >Play Game</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
