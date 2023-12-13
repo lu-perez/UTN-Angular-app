@@ -6,6 +6,7 @@ import { DialogService } from 'src/app/shared/services/dialog.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PurchasesService } from '../../../../services/purchases.service';
+import { AddPurchaseComponent, AddPurchaseDialogData } from '../../purchases/add-purchase/add-purchase.component';
 
 @Component({
   selector: 'app-dlc-detail',
@@ -13,7 +14,7 @@ import { PurchasesService } from '../../../../services/purchases.service';
   styleUrls: ['./dlc-detail.component.scss']
 })
 export class DlcDetailComponent implements OnInit, OnDestroy {
-  dlc!: DLC | null;
+  dlc!: DLC;
   currentUser: SafeUser | null;
   Role = Role;
   hasPurchasedDLC = false;
@@ -37,24 +38,16 @@ export class DlcDetailComponent implements OnInit, OnDestroy {
 
     if (dlcId) {
       this.dlcSubscription = this.dlcsService.getDLC({ id: dlcId, _expand: 'game' }).subscribe(dlc => {
-        if (dlc.length > 0) {
-          this.dlc = dlc[0];
-          console.log(this.dlc);
-        }
+        this.dlc = dlc[0];
       });
-      this.getPurchases(dlcId);
-    }
-  }
-
-  getPurchases(dlcId: number): void {
-    if (this.currentUser?.role === Role.User) {
-      this.purchasesSubscription = this.purchasesService.getPurchases({
-        userId: this.currentUser?.id,
-        dlcId,
-      }).subscribe(purchases => {
-        this.hasPurchasedDLC = purchases?.filter(purchase => purchase.dlcId === dlcId).length > 0;
-        console.log(this.hasPurchasedDLC);
-      });
+      if (this.currentUser?.role === Role.User) {
+        this.purchasesSubscription = this.purchasesService.getPurchases({
+          userId: this.currentUser?.id,
+          dlcId,
+        }).subscribe(purchases => {
+          this.hasPurchasedDLC = purchases?.filter(purchase => purchase.dlcId === dlcId).length > 0;
+        });
+      }
     }
   }
 
@@ -66,7 +59,17 @@ export class DlcDetailComponent implements OnInit, OnDestroy {
   }
 
   openBuyDLCModal(): void {
-    console.log('buy dlc');
+    const data: AddPurchaseDialogData = {
+      title: `Buy ${this.dlc?.name}`,
+      purchaseType: 'DLC',
+      dlc: this.dlc,
+      currentUser: this.currentUser,
+    };
+    this.dialogService.open(AddPurchaseComponent, { data });
+  }
+
+  playGame(): void {
+    console.log('play dlc', this.dlc);
   }
 
 }

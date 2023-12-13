@@ -40,7 +40,14 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       this.gameSubscription = this.gamesService.getGame(gameId).subscribe(game => {
         this.game = game;
       });
-      this.getPurchases(gameId);
+      if (this.currentUser?.role === Role.User) {
+        this.purchasesSubscription = this.purchasesService.getPurchases({
+          userId: this.currentUser?.id,
+          gameId,
+        }).subscribe(purchases => {
+          this.hasPurchasedGame = purchases?.length > 0;
+        });
+      }
     }
   }
 
@@ -51,20 +58,10 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  getPurchases(gameId: number): void {
-    if (this.currentUser?.role === Role.User) {
-      this.purchasesSubscription = this.purchasesService.getPurchases({
-        userId: this.currentUser?.id,
-        gameId,
-      }).subscribe(purchases => {
-        this.hasPurchasedGame = purchases?.length > 0;
-      });
-    }
-  }
-
   openBuyGameModal(): void {
     const data: AddPurchaseDialogData = {
       title: `Buy ${this.game?.name}`,
+      purchaseType: 'Game',
       game: this.game,
       currentUser: this.currentUser,
     };

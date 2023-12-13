@@ -97,13 +97,6 @@
       "userId": 1,
       "paymentMethod": "Credit Card",
       "pricePaid": 49.99
-    },
-    {
-      "id": 2,
-      "dlcId": 1,
-      "userId": 1,
-      "paymentMethod": "Credit Card",
-      "pricePaid": 9.99
     }
   ],
   "lends": [

@@ -13,14 +13,16 @@
       <div mat-subheader>Buy Game Details</div>
       <mat-list-item>
         <mat-icon matListItemIcon>sports_esports</mat-icon>
-        <h3 matListItemTitle>{{game.name}}</h3>
-        <small matListItemLine>Game Name</small>
+        <h3 matListItemTitle *ngIf="data.purchaseType === 'Game'">{{data.game?.name}}</h3>
+        <h3 matListItemTitle *ngIf="data.purchaseType === 'DLC'">{{data.dlc?.name}}</h3>
+        <small matListItemLine>Name</small>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
         <mat-icon matListItemIcon>attach_money</mat-icon>
-        <h3 matListItemTitle>{{game.price | currency }}</h3>
-        <small matListItemLine>Game Price</small>
+        <h3 matListItemTitle *ngIf="data.purchaseType === 'Game'">{{data.game?.price | currency }}</h3>
+        <h3 matListItemTitle *ngIf="data.purchaseType === 'DLC'">{{data.dlc?.price | currency }}</h3>
+        <small matListItemLine>Price</small>
       </mat-list-item>
     </mat-list>
     <form [formGroup]="addPurchaseForm" id="myForm" (ngSubmit)="onSubmit()">
