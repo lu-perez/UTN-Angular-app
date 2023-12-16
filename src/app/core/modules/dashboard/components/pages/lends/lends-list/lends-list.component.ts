@@ -59,7 +59,7 @@ export class LendsListComponent implements OnInit, AfterViewInit, OnDestroy {
         const data = lends.map((lend) => ({
           id: lend.id,
           gameName: lend.game?.name || '',
-          borrowerUserEmail: lend.user.email,
+          borrowerUserEmail: lend.user?.email || '',
           expirationDate: new DatePipe('en-US').transform(lend.expirationDate, 'dd/MM/yyyy'),
         }));
         this.dataSource.data = data;

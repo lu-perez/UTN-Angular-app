@@ -1,3 +1,23 @@
+export enum ValueType {
+  String = 'string',
+  Number = 'number',
+  Boolean = 'boolean',
+}
+
+export type GenreAttribute = {
+  attributeName: string;
+  attributeType: string; // ValueType
+  required: boolean;
+}
+
+export type Genre = {
+  id: number;
+  name: string;
+  attributes: GenreAttribute[];
+}
+
+export type NewGenre = Omit<Genre, 'id'>
+
 export type Game = {
   id: number;
   name: string;
@@ -66,7 +86,7 @@ export type Lend = {
   gameId: number;
   game?: Game;
   userId: number;
-  user: User;
+  user?: User;
   expirationDate: Date;
 }
 

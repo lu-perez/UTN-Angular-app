@@ -1,0 +1,15 @@
+mat-card {
+  width: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.dynamic-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
