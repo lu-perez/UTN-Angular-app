@@ -36,8 +36,8 @@ export class AddGenderComponent implements OnInit {
 
   addAttribute() {
     const attributeFormGroup = this.fb.group({
-      attributeName: new FormControl('', Validators.required),
-      attributeType: new FormControl('text', Validators.required),
+      attrName: new FormControl('', Validators.required),
+      attrType: new FormControl('text', Validators.required),
     });
 
     this.attributes.push(attributeFormGroup);
@@ -50,17 +50,17 @@ export class AddGenderComponent implements OnInit {
   onSubmit(): void {
     console.log(this.addGenreForm.value);
 
-    // if (this.addGenreForm.valid) {
-    //   this.genresService.addGenre(this.addGenreForm.value).subscribe({
-    //     complete: () => {
-    //       this.router.navigate(['/dashboard/genres']);
-    //     },
-    //     error: (err) => {
-    //       console.error('Genre creation failed', err);
-    //     }
-    //   });
-    // } else {
-    //   console.warn('Form is invalid');
-    // }
+    if (this.addGenreForm.valid) {
+      this.genresService.addGenre(this.addGenreForm.value).subscribe({
+        complete: () => {
+          this.router.navigate(['/dashboard/genres']);
+        },
+        error: (err) => {
+          console.error('Genre creation failed', err);
+        }
+      });
+    } else {
+      console.warn('Form is invalid');
+    }
   }
 }

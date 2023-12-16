@@ -90,6 +90,20 @@
     }
   ],
   "genres": [
+    {
+      "name": "AAAAA",
+      "attributes": [
+        {
+          "attrName": "QQQQQ",
+          "attrType": "text"
+        },
+        {
+          "attrName": "WWWW",
+          "attrType": "number"
+        }
+      ],
+      "id": 1
+    }
   ],
   "purchases": [
     {

@@ -21,12 +21,12 @@
           <div *ngFor="let attribute of attributes.controls; let i = index">
             <div formGroupName="{{i}}" class="dynamic-form">
               <mat-form-field appearance="outline" floatLabel="auto">
-                <mat-label for="attributeName">Attribute Name</mat-label>
-                <input matInput type="text" id="attributeName" formControlName="attributeName" />
+                <mat-label>Attribute Name</mat-label>
+                <input matInput type="text" formControlName="attrName" />
               </mat-form-field>
               <mat-form-field appearance="outline" floatLabel="always">
-                <mat-label for="attributeType">Attribute Type</mat-label>
-                <mat-select id="attributeType" formControlName="attributeType">
+                <mat-label>Attribute Type</mat-label>
+                <mat-select formControlName="attrType">
                   <mat-option value="text">Text</mat-option>
                   <mat-option value="number">Number</mat-option>
                 </mat-select>
