@@ -30,8 +30,6 @@
                   <mat-option *ngFor="let valueType of attributeTypes" [value]="valueType[1]">
                     {{ valueType[0] }}
                   </mat-option>
-                  <!-- <mat-option value="text">Text</mat-option>
-                  <mat-option value="number">Number</mat-option> -->
                 </mat-select>
               </mat-form-field>
               <button mat-icon-button type="button" color="warn" (click)="removeAttribute(i)">

@@ -12,14 +12,14 @@ import { ValueType } from 'src/app/shared/types/types';
 })
 export class AddGenderComponent implements OnInit {
   addGenreForm!: FormGroup;
-  attributeTypes: [string, ValueType][] = Object.entries(ValueType);
+  attributeTypes: [string, string][] = Object.entries(ValueType);
 
   constructor(
     private fb: FormBuilder,
     private genresService: GenresService,
     private router: Router,
     private snackBar: MatSnackBar,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initializeForm();
