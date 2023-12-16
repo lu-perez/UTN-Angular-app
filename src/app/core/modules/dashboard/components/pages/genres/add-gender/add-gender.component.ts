@@ -3,6 +3,7 @@ import { GenresService } from '../../../../services/genres.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ValueType } from 'src/app/shared/types/types';
 
 @Component({
   selector: 'app-add-gender',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AddGenderComponent implements OnInit {
   addGenreForm!: FormGroup;
+  attributeTypes: [string, ValueType][] = Object.entries(ValueType);
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +39,7 @@ export class AddGenderComponent implements OnInit {
   addAttribute() {
     const attributeFormGroup = this.fb.group({
       attrName: new FormControl('', Validators.required),
-      attrType: new FormControl('text', Validators.required),
+      attrType: new FormControl(ValueType.Text, Validators.required),
     });
 
     this.attributes.push(attributeFormGroup);

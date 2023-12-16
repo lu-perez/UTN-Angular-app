@@ -1,12 +1,11 @@
 export enum ValueType {
-  String = 'string',
-  Number = 'number',
-  Boolean = 'boolean',
+  Text = 'string',
+  Numeric = 'number',
 }
 
 export type GenreAttribute = {
   attrName: string;
-  attrType: string; // ValueType
+  attrType: ValueType;
   required: boolean;
 }
 
