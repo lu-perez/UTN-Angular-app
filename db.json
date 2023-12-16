@@ -103,6 +103,29 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "adsasdasd",
+      "attributes": [],
+      "id": 2
+    },
+    {
+      "name": "terror",
+      "attributes": [
+        {
+          "attrName": "hay sangre",
+          "attrType": "boolean"
+        },
+        {
+          "attrName": "terror level",
+          "attrType": "number"
+        },
+        {
+          "attrName": "oscuridad",
+          "attrType": "string"
+        }
+      ],
+      "id": 3
     }
   ],
   "purchases": [

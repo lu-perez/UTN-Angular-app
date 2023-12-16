@@ -1,6 +1,7 @@
 export enum ValueType {
   Text = 'string',
   Numeric = 'number',
+  Boolean = 'boolean',
 }
 
 export type GenreAttribute = {

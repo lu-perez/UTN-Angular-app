@@ -30,6 +30,7 @@ export class AddGenderComponent implements OnInit {
       name: ['', Validators.required],
       attributes: this.fb.array([]),
     });
+    this.addAttribute();
   }
 
   get attributes(): FormArray {
