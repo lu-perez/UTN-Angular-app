@@ -158,27 +158,6 @@
       "name": "Shooter",
       "attributes": [],
       "id": 4
-    },
-    {
-      "name": "Adventure",
-      "attributes": [
-        {
-          "attrName": "hay bloques",
-          "attrType": "boolean",
-          "attrRequired": true
-        },
-        {
-          "attrName": "cant players",
-          "attrType": "number",
-          "attrRequired": false
-        },
-        {
-          "attrName": "descripción",
-          "attrType": "string",
-          "attrRequired": true
-        }
-      ],
-      "id": 5
     }
   ],
   "purchases": [
