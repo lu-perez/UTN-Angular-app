@@ -1,1 +1,64 @@
-<p>edit-gender works!</p>
+<div class="content-center" *ngIf="genre">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Update {{genre.name}}</mat-card-subtitle>
+      <mat-card-title>Update Genre</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="editGenreForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="name">Genre Name</mat-label>
+          <input matInput type="text" id="name" formControlName="name" />
+          <mat-error *ngIf="editGenreForm.controls['name'].invalid
+            && (editGenreForm.controls['name'].dirty
+            || editGenreForm.controls['name'].touched)">
+            Please enter a genre name.
+          </mat-error>
+        </mat-form-field>
+
+        <div formArrayName="attributes">
+          <div *ngFor="let attribute of attributes.controls; let i = index">
+            <div formGroupName="{{ i }}" class="dynamic-form">
+              <mat-form-field appearance="outline" floatLabel="auto">
+                <mat-label>Attribute Name</mat-label>
+                <input matInput type="text" formControlName="attrName" />
+              </mat-form-field>
+        
+              <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Attribute Type</mat-label>
+                <mat-select formControlName="attrType">
+                  <mat-option *ngFor="let valueType of attributeTypes" [value]="valueType[1]">
+                    {{ valueType[0] }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        
+              <mat-label class="required-switch"><small>Required</small>
+                <mat-slide-toggle formControlName="attrRequired"></mat-slide-toggle>
+              </mat-label>
+        
+              <button mat-icon-button type="button" color="warn" (click)="removeAttribute(i)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button
+          mat-fab
+          type="button"
+          color="primary"
+          (click)="addAttribute('', ValueType.Text, false)"
+          class="mb-4"
+          matTooltip="Add attribute"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!editGenreForm.valid">Update</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

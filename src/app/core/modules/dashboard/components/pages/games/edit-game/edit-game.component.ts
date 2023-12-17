@@ -14,11 +14,11 @@ import { GenresService } from '../../../../services/genres.service';
 })
 export class EditGameComponent implements OnInit, OnDestroy {
   editGameForm!: FormGroup;
-  game: Game | null = null;
+  game!: Game;
   genres!: Genre[];
 
   private gameSubscription!: Subscription;
-  genresSubscription!: Subscription;
+  private genresSubscription!: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -61,14 +61,14 @@ export class EditGameComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    if (this.editGameForm.valid && this.game) {
-      this.gamesService.updateGame(this.game?.id, this.editGameForm.value).subscribe({
+    if (this.editGameForm.valid) {
+      this.gamesService.updateGame(this.game.id, this.editGameForm.value).subscribe({
         complete: () => {
           this.router.navigate(['/dashboard/games']);
           this.snackBar.open(`Game ${this.editGameForm.get('name')?.value} updated`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
-          console.error('Game updating failed', err);
+          console.error('Game update failed', err);
         }
       });
     } else {

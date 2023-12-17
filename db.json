@@ -73,25 +73,13 @@
       "id": 4
     },
     {
-      "name": "Aaaaaa",
+      "name": "asdasd",
       "cpuRequirements": "aaaaa",
       "memoryRequirements": "aaaaa",
       "storageRequirements": "aaaaaaa",
       "genreId": 1,
       "price": "123",
       "imageSrc": "",
-      "genreAttributes": [
-        {
-          "attrName": "QQQQQ",
-          "attrType": "text",
-          "attrValue": "qqqqq"
-        },
-        {
-          "attrName": "WWWW",
-          "attrType": "number",
-          "attrValue": "222222"
-        }
-      ],
       "id": 5
     }
   ],
@@ -117,12 +105,17 @@
       "attributes": [
         {
           "attrName": "QQQQQ",
-          "attrType": "text",
-          "attrRequired": true
+          "attrType": "string",
+          "attrRequired": false
         },
         {
           "attrName": "WWWW",
           "attrType": "number",
+          "attrRequired": true
+        },
+        {
+          "attrName": "Eeeeeee",
+          "attrType": "boolean",
           "attrRequired": false
         }
       ],
