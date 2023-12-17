@@ -7,7 +7,7 @@ export enum ValueType {
 export type GenreAttribute = {
   attrName: string;
   attrType: ValueType;
-  required: boolean;
+  // required: boolean;
 }
 
 export type Genre = {
@@ -26,6 +26,7 @@ export type Game = {
   storageRequirements: string;
   genreId: number;
   genre?: Genre;
+  genreAttributes: any[];
   price: string;
   imageSrc?: string;
 }

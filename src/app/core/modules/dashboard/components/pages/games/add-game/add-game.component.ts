@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { GenresService } from '../../../../services/genres.service';
-import { Genre } from 'src/app/shared/types/types';
+import { Genre, GenreAttribute } from 'src/app/shared/types/types';
 
 @Component({
   selector: 'app-add-game',
@@ -46,23 +46,51 @@ export class AddGameComponent implements OnInit, OnDestroy {
       genreId: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       imageSrc: [''],
+      genreAttributes: this.fb.array([]),
     });
   }
 
-  onSubmit() {
-    if (this.addGameForm.valid) {
-      this.gamesService.addGame(this.addGameForm.value).subscribe({
-        complete: () => {
-          this.router.navigate(['/dashboard/games']);
-          this.snackBar.open(`Game ${this.addGameForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
-        },
-        error: (err) => {
-          console.error('Game creation failed', err);
-        }
-      });
-    } else {
-      console.warn('Form is invalid');
+  onGenreChange(): void {
+    const selectedGenreId = this.addGameForm.get('genreId')?.value;
+    const selectedGenre = this.genres.find((genre) => genre.id === selectedGenreId);
+
+    this.addGameForm.setControl('genreAttributes', this.fb.array([]));
+
+    if (selectedGenre) {
+      this.addGenreAttributesToForm(selectedGenre.attributes);
     }
+  }
+
+  private addGenreAttributesToForm(attributes: GenreAttribute[]): void {
+    attributes.forEach((attribute) => {
+      console.log(attribute);
+      const control = this.fb.group({
+        [attribute.attrName]: new FormControl('', Validators.required),
+      });
+      this.genreAttributesArray.push(control);
+    });
+    console.log(this.addGameForm);
+  }
+
+  get genreAttributesArray() {
+    return this.addGameForm.get('genreAttributes') as FormArray;
+  }
+
+  onSubmit() {
+    console.log(this.addGameForm.value);
+    // if (this.addGameForm.valid) {
+    //   this.gamesService.addGame(this.addGameForm.value).subscribe({
+    //     complete: () => {
+    //       this.router.navigate(['/dashboard/games']);
+    //       this.snackBar.open(`Game ${this.addGameForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
+    //     },
+    //     error: (err) => {
+    //       console.error('Game creation failed', err);
+    //     }
+    //   });
+    // } else {
+    //   console.warn('Form is invalid');
+    // }
   }
 
 }

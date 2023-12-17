@@ -69,13 +69,17 @@
 
         <mat-form-field appearance="outline" floatLabel="auto">
           <mat-label for="genreId">Genre</mat-label>
-          <mat-select id="genreId" formControlName="genreId">
+          <mat-select id="genreId" formControlName="genreId" (selectionChange)="onGenreChange()">
             <mat-option *ngFor="let genre of genres" [value]="genre.id">
               {{ genre.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-  
+
+        <div *ngFor="let control of genreAttributesArray.controls; let i = index">
+          
+        </div>
+
         <button
           mat-raised-button
           color="primary"
