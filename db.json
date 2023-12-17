@@ -81,6 +81,28 @@
       "price": "123123123",
       "imageSrc": "",
       "id": 5
+    },
+    {
+      "name": "qeqweqwe",
+      "cpuRequirements": "weqweqwe",
+      "memoryRequirements": "weqweqweqwe",
+      "storageRequirements": "qweqweqweqew",
+      "genreId": 1,
+      "price": "123",
+      "imageSrc": "",
+      "genreAttributes": [
+        {
+          "attrName": "QQQQQ",
+          "attrType": "text",
+          "attrValue": "AAAAAAAA"
+        },
+        {
+          "attrName": "WWWW",
+          "attrType": "number",
+          "attrValue": "EEEEEEEE"
+        }
+      ],
+      "id": 6
     }
   ],
   "dlcs": [

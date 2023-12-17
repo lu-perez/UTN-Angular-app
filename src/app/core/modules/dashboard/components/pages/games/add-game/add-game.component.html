@@ -76,8 +76,15 @@
           </mat-select>
         </mat-form-field>
 
-        <div *ngFor="let control of genreAttributesArray.controls; let i = index">
-          
+        <div formArrayName="genreAttributes">
+          <div *ngFor="let control of genreAttributesArray.controls; let i = index">
+            <div formGroupName="{{i}}">
+              <mat-form-field appearance="outline" floatLabel="auto">
+                <mat-label>{{control.value.attrName}}</mat-label>
+                <input matInput type="text" formControlName="attrValue" />
+              </mat-form-field>
+            </div>
+          </div>
         </div>
 
         <button

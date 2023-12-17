@@ -65,32 +65,34 @@ export class AddGameComponent implements OnInit, OnDestroy {
     attributes.forEach((attribute) => {
       console.log(attribute);
       const control = this.fb.group({
-        [attribute.attrName]: new FormControl('', Validators.required),
+        attrName: attribute.attrName,
+        attrType: attribute.attrType,
+        attrValue: new FormControl('', Validators.required),
       });
       this.genreAttributesArray.push(control);
     });
     console.log(this.addGameForm);
   }
 
-  get genreAttributesArray() {
-    return this.addGameForm.get('genreAttributes') as FormArray;
+  get genreAttributesArray(): FormArray {
+    return <FormArray>this.addGameForm.get('genreAttributes');
   }
 
   onSubmit() {
     console.log(this.addGameForm.value);
-    // if (this.addGameForm.valid) {
-    //   this.gamesService.addGame(this.addGameForm.value).subscribe({
-    //     complete: () => {
-    //       this.router.navigate(['/dashboard/games']);
-    //       this.snackBar.open(`Game ${this.addGameForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
-    //     },
-    //     error: (err) => {
-    //       console.error('Game creation failed', err);
-    //     }
-    //   });
-    // } else {
-    //   console.warn('Form is invalid');
-    // }
+    if (this.addGameForm.valid) {
+      this.gamesService.addGame(this.addGameForm.value).subscribe({
+        complete: () => {
+          this.router.navigate(['/dashboard/games']);
+          this.snackBar.open(`Game ${this.addGameForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
+        },
+        error: (err) => {
+          console.error('Game creation failed', err);
+        }
+      });
+    } else {
+      console.warn('Form is invalid');
+    }
   }
 
 }
