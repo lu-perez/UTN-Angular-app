@@ -1,26 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
+import { GenresService } from '../../../../services/genres.service';
+import { Genre } from 'src/app/shared/types/types';
 
 @Component({
   selector: 'app-add-game',
   templateUrl: './add-game.component.html',
   styleUrls: ['./add-game.component.scss']
 })
-export class AddGameComponent implements OnInit {
+export class AddGameComponent implements OnInit, OnDestroy {
   addGameForm!: FormGroup;
+  genres!: Genre[];
+
+  genresSubscription!: Subscription;
 
   constructor(
     private fb: FormBuilder,
     private gamesService: GamesService,
+    private genresService: GenresService,
     private router: Router,
     private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.genresSubscription = this.genresService.getGenres().subscribe(genres => {
+      this.genres = genres;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.genresSubscription.unsubscribe();
   }
 
   initializeForm(): void {
@@ -29,7 +43,7 @@ export class AddGameComponent implements OnInit {
       cpuRequirements: ['', Validators.required],
       memoryRequirements: ['', Validators.required],
       storageRequirements: ['', Validators.required],
-      genre: ['', Validators.required],
+      genreId: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       imageSrc: [''],
     });

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game, NewGame } from 'src/app/shared/types/types';
@@ -14,8 +14,11 @@ export class GamesService {
     return this.http.get<Game>(`${this.url}/${gameId}`);
   }
 
-  getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(this.url);
+  getGames(queryParams: {
+    _expand?: string | string[],
+  }): Observable<Game[]> {
+    const params = new HttpParams({ fromObject: queryParams });
+    return this.http.get<Game[]>(this.url, { params });
   }
 
   addGame(data: NewGame): Observable<Game> {

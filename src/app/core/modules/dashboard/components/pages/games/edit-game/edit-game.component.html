@@ -48,16 +48,6 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="auto">
-          <mat-label for="genre">Genre</mat-label>
-          <input matInput type="text" id="genre" formControlName="genre" />
-          <mat-error *ngIf="editGameForm.controls['genre'].invalid
-            && (editGameForm.controls['genre'].dirty
-            || editGameForm.controls['genre'].touched)">
-            Please enter the genre.
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" floatLabel="auto">
           <mat-label for="price">Price</mat-label>
           <input matInput type="text" id="price" formControlName="price" />
           <mat-error *ngIf="editGameForm.controls['price'].invalid
@@ -67,6 +57,14 @@
           </mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="genreId">Genre</mat-label>
+          <mat-select id="genreId" formControlName="genreId">
+            <mat-option *ngFor="let genre of genres" [value]="genre.id">
+              {{ genre.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
         <button mat-raised-button color="primary" type="submit" [disabled]="!editGameForm.valid">Update</button>
 
       </form>

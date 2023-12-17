@@ -28,7 +28,7 @@ export class EditDlcComponent implements OnInit, OnDestroy {
     private router: Router,
     private snackBar: MatSnackBar,
   ) {
-    this.games$ = this.gamesService.getGames();
+    this.games$ = this.gamesService.getGames({});
   }
 
   ngOnInit(): void {

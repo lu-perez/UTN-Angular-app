@@ -24,7 +24,8 @@ export type Game = {
   cpuRequirements: string;
   memoryRequirements: string;
   storageRequirements: string;
-  genre: string;
+  genreId: number;
+  genre?: Genre;
   price: string;
   imageSrc?: string;
 }

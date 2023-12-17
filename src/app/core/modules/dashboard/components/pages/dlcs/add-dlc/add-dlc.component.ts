@@ -24,7 +24,7 @@ export class AddDlcComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
   ) {
-    this.games$ = this.gamesService.getGames();
+    this.games$ = this.gamesService.getGames({});
   }
 
   ngOnInit(): void {

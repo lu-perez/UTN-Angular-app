@@ -57,6 +57,7 @@ export class AddGenderComponent implements OnInit {
       this.genresService.addGenre(this.addGenreForm.value).subscribe({
         complete: () => {
           this.router.navigate(['/dashboard/genres']);
+          this.snackBar.open(`Genre ${this.addGenreForm.get('name')?.value} created`, '', { duration: 4000, panelClass: ['success-snackbar'] });
         },
         error: (err) => {
           console.error('Genre creation failed', err);

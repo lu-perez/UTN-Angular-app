@@ -38,7 +38,7 @@
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
       "storageRequirements": "50GB",
-      "genre": "Sci-Fi",
+      "genreId": 1,
       "price": 29.99,
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
     },
@@ -48,7 +48,7 @@
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
       "storageRequirements": "100GB",
-      "genre": "Strategy",
+      "genreId": 2,
       "price": 49.99,
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg"
     },
@@ -58,7 +58,7 @@
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genre": "Shooter",
+      "genreId": 4,
       "price": 39.99,
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
     },
@@ -68,9 +68,19 @@
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genre": "A",
+      "genreId": 2,
       "price": "40",
       "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg"
+    },
+    {
+      "name": "qweqweqwe",
+      "cpuRequirements": "qweqweqe",
+      "memoryRequirements": "qewqweq",
+      "storageRequirements": "qweqweqwe",
+      "genreId": 3,
+      "price": "123123123",
+      "imageSrc": "",
+      "id": 5
     }
   ],
   "dlcs": [
@@ -91,7 +101,7 @@
   ],
   "genres": [
     {
-      "name": "AAAAA",
+      "name": "Sci-Fi",
       "attributes": [
         {
           "attrName": "QQQQQ",
@@ -105,12 +115,12 @@
       "id": 1
     },
     {
-      "name": "adsasdasd",
+      "name": "Strategy",
       "attributes": [],
       "id": 2
     },
     {
-      "name": "terror",
+      "name": "Terror",
       "attributes": [
         {
           "attrName": "hay sangre",
@@ -126,6 +136,11 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Shooter",
+      "attributes": [],
+      "id": 4
     }
   ],
   "purchases": [

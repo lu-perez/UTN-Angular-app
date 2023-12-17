@@ -2,9 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Game } from 'src/app/shared/types/types';
+import { Game, Genre } from 'src/app/shared/types/types';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { GenresService } from '../../../../services/genres.service';
 
 @Component({
   selector: 'app-edit-game',
@@ -14,13 +15,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditGameComponent implements OnInit, OnDestroy {
   editGameForm!: FormGroup;
   game: Game | null = null;
+  genres!: Genre[];
 
   private gameSubscription!: Subscription;
+  genresSubscription!: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private gamesService: GamesService,
+    private genresService: GenresService,
     private router: Router,
     private snackBar: MatSnackBar,
   ) { }
@@ -33,11 +37,15 @@ export class EditGameComponent implements OnInit, OnDestroy {
         this.game = game;
         this.initializeForm();
       });
+      this.genresSubscription = this.genresService.getGenres().subscribe(genres => {
+        this.genres = genres;
+      });
     }
   }
 
   ngOnDestroy(): void {
     this.gameSubscription.unsubscribe();
+    this.genresSubscription.unsubscribe();
   }
 
   initializeForm(): void {
@@ -46,7 +54,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
       cpuRequirements: [this.game?.cpuRequirements, Validators.required],
       memoryRequirements: [this.game?.memoryRequirements, Validators.required],
       storageRequirements: [this.game?.storageRequirements, Validators.required],
-      genre: [this.game?.genre, Validators.required],
+      genreId: [this.game?.genreId, Validators.required],
       price: [this.game?.price, [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       imageSrc: [this.game?.imageSrc],
     });

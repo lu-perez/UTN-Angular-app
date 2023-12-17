@@ -26,7 +26,7 @@ export class GamesListComponent implements OnInit {
   }
 
   getGames(): void {
-    this.games$ = this.gamesService.getGames();
+    this.games$ = this.gamesService.getGames({ _expand: 'genre' });
   }
 
 }

@@ -52,17 +52,6 @@
         </mat-form-field>
       
         <mat-form-field appearance="outline" floatLabel="auto">
-          <mat-label for="genre">Genre</mat-label>
-          <input matInput type="text" id="genre" formControlName="genre" />
-          <mat-error *ngIf="addGameForm.controls['genre'].invalid
-            && (addGameForm.controls['genre'].dirty
-            || addGameForm.controls['genre'].touched)"
-          >
-            Please enter the genre.
-          </mat-error>
-        </mat-form-field>
-      
-        <mat-form-field appearance="outline" floatLabel="auto">
           <mat-label for="price">Price</mat-label>
           <input matInput type="text" id="price" formControlName="price" />
           <mat-error *ngIf="addGameForm.controls['price'].invalid
@@ -76,6 +65,15 @@
         <mat-form-field appearance="outline" floatLabel="auto">
           <mat-label for="imageSrc">Image</mat-label>
           <input matInput type="text" id="imageSrc" formControlName="imageSrc" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="genreId">Genre</mat-label>
+          <mat-select id="genreId" formControlName="genreId">
+            <mat-option *ngFor="let genre of genres" [value]="genre.id">
+              {{ genre.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
   
         <button
