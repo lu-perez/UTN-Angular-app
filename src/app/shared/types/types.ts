@@ -7,7 +7,7 @@ export enum ValueType {
 export type GenreAttribute = {
   attrName: string;
   attrType: ValueType;
-  required: boolean;
+  attrRequired: boolean;
 }
 
 export type GenreAttributeWithValue = GenreAttribute & {

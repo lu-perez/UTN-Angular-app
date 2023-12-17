@@ -13,3 +13,9 @@ form {
   justify-content: space-between;
   gap: 8px;
 }
+
+.required-switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

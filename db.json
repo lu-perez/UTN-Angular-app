@@ -136,15 +136,18 @@
       "attributes": [
         {
           "attrName": "hay sangre",
-          "attrType": "boolean"
+          "attrType": "boolean",
+          "attrRequired": true
         },
         {
           "attrName": "terror level",
-          "attrType": "number"
+          "attrType": "number",
+          "attrRequired": true
         },
         {
           "attrName": "oscuridad",
-          "attrType": "string"
+          "attrType": "string",
+          "attrRequired": false
         }
       ],
       "id": 3
@@ -153,6 +156,27 @@
       "name": "Shooter",
       "attributes": [],
       "id": 4
+    },
+    {
+      "name": "Adventure",
+      "attributes": [
+        {
+          "attrName": "hay bloques",
+          "attrType": "boolean",
+          "attrRequired": true
+        },
+        {
+          "attrName": "cant players",
+          "attrType": "number",
+          "attrRequired": false
+        },
+        {
+          "attrName": "descripción",
+          "attrType": "string",
+          "attrRequired": true
+        }
+      ],
+      "id": 5
     }
   ],
   "purchases": [

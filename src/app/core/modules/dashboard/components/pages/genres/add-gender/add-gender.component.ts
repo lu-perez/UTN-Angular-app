@@ -41,6 +41,7 @@ export class AddGenderComponent implements OnInit {
     const attributeFormGroup = this.fb.group({
       attrName: new FormControl('', Validators.required),
       attrType: new FormControl(ValueType.Text, Validators.required),
+      attrRequired: new FormControl(false),
     });
 
     this.attributes.push(attributeFormGroup);

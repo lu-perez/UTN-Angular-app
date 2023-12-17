@@ -32,6 +32,9 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+              <mat-label class="required-switch"><small>Required</small>
+                <mat-slide-toggle formControlName="attrRequired"></mat-slide-toggle>
+              </mat-label>
               <button mat-icon-button type="button" color="warn" (click)="removeAttribute(i)">
                 <mat-icon>close</mat-icon>
               </button>
