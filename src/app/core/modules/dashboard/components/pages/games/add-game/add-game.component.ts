@@ -15,6 +15,7 @@ import { Genre, GenreAttribute, ValueType } from 'src/app/shared/types/types';
 export class AddGameComponent implements OnInit, OnDestroy {
   addGameForm!: FormGroup;
   genres!: Genre[];
+  ValueType = ValueType;
 
   genresSubscription!: Subscription;
 
@@ -63,20 +64,20 @@ export class AddGameComponent implements OnInit, OnDestroy {
 
   private addGenreAttributesToForm(attributes: GenreAttribute[]): void {
     attributes.forEach((attribute) => {
+      const attrValueValidators: ValidatorFn[] = [];
 
-      let attrValueValidator: ValidatorFn | null = Validators.required;
+      if (attribute.attrRequired) {
+        attrValueValidators.push(Validators.required);
+      }
 
       if (attribute.attrType === ValueType.Numeric) {
-        attrValueValidator = Validators.compose([
-          Validators.required,
-          Validators.pattern(/^\d+(\.\d{1,2})?$/),
-        ]);
+        attrValueValidators.push(Validators.pattern(/^\d+(\.\d{1,2})?$/));
       }
 
       const control = this.fb.group({
         attrName: attribute.attrName,
         attrType: attribute.attrType,
-        attrValue: new FormControl('', attrValueValidator),
+        attrValue: new FormControl('', attrValueValidators),
       });
 
       this.genreAttributesArray.push(control);

@@ -79,13 +79,25 @@
         <div formArrayName="genreAttributes">
           <div *ngFor="let control of genreAttributesArray.controls; let i = index">
             <div formGroupName="{{ i }}" class="dynamic-fields">
-              <mat-form-field appearance="outline" floatLabel="auto">
-                <mat-label>{{ control.value.attrName }}</mat-label>
-                <input matInput type="{{ control.value.attrType }}" formControlName="attrValue" />
-                <mat-error *ngIf="control.get('attrValue')?.invalid">
-                  Invalid {{ control.value.attrType }} value. Please enter a valid {{ control.value.attrType }}.
-                </mat-error>
-              </mat-form-field>
+
+              <ng-container *ngIf="control.value.attrType === ValueType.Boolean; else inputField">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>{{ control.value.attrName }}</mat-label>
+                  <mat-slide-toggle formControlName="attrValue"></mat-slide-toggle>
+                  <textarea matInput [ngStyle]="{'display':'none'}"></textarea>
+                </mat-form-field>
+              </ng-container>
+
+              <ng-template #inputField>
+                <mat-form-field appearance="outline" floatLabel="auto">
+                  <mat-label>{{ control.value.attrName }}</mat-label>
+                  <input matInput [type]="control.value.attrType" formControlName="attrValue" />
+                  <mat-error *ngIf="control.get('attrValue')?.invalid">
+                    Invalid {{ control.value.attrType }} value. Please enter a valid {{ control.value.attrType }}.
+                  </mat-error>
+                </mat-form-field>
+              </ng-template>
+
             </div>
           </div>
         </div>

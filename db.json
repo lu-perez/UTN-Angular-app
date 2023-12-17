@@ -117,11 +117,13 @@
       "attributes": [
         {
           "attrName": "QQQQQ",
-          "attrType": "text"
+          "attrType": "text",
+          "attrRequired": true
         },
         {
           "attrName": "WWWW",
-          "attrType": "number"
+          "attrType": "number",
+          "attrRequired": false
         }
       ],
       "id": 1
