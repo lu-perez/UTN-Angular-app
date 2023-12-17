@@ -63,30 +63,20 @@
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
     },
     {
-      "id": 4,
       "name": "Minecraft",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genreId": 2,
+      "genreId": 1,
       "price": "40",
-      "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg"
+      "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg",
+      "id": 4
     },
     {
-      "name": "qweqweqwe",
-      "cpuRequirements": "qweqweqe",
-      "memoryRequirements": "qewqweq",
-      "storageRequirements": "qweqweqwe",
-      "genreId": 3,
-      "price": "123123123",
-      "imageSrc": "",
-      "id": 5
-    },
-    {
-      "name": "qeqweqwe",
-      "cpuRequirements": "weqweqwe",
-      "memoryRequirements": "weqweqweqwe",
-      "storageRequirements": "qweqweqweqew",
+      "name": "Aaaaaa",
+      "cpuRequirements": "aaaaa",
+      "memoryRequirements": "aaaaa",
+      "storageRequirements": "aaaaaaa",
       "genreId": 1,
       "price": "123",
       "imageSrc": "",
@@ -94,15 +84,15 @@
         {
           "attrName": "QQQQQ",
           "attrType": "text",
-          "attrValue": "AAAAAAAA"
+          "attrValue": "qqqqq"
         },
         {
           "attrName": "WWWW",
           "attrType": "number",
-          "attrValue": "EEEEEEEE"
+          "attrValue": "222222"
         }
       ],
-      "id": 6
+      "id": 5
     }
   ],
   "dlcs": [

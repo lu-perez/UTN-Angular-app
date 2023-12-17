@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { GenresService } from '../../../../services/genres.service';
-import { Genre, GenreAttribute } from 'src/app/shared/types/types';
+import { Genre, GenreAttribute, ValueType } from 'src/app/shared/types/types';
 
 @Component({
   selector: 'app-add-game',
@@ -63,15 +63,24 @@ export class AddGameComponent implements OnInit, OnDestroy {
 
   private addGenreAttributesToForm(attributes: GenreAttribute[]): void {
     attributes.forEach((attribute) => {
-      console.log(attribute);
+
+      let attrValueValidator: ValidatorFn | null = Validators.required;
+
+      if (attribute.attrType === ValueType.Numeric) {
+        attrValueValidator = Validators.compose([
+          Validators.required,
+          Validators.pattern(/^\d+(\.\d{1,2})?$/),
+        ]);
+      }
+
       const control = this.fb.group({
         attrName: attribute.attrName,
         attrType: attribute.attrType,
-        attrValue: new FormControl('', Validators.required),
+        attrValue: new FormControl('', attrValueValidator),
       });
+
       this.genreAttributesArray.push(control);
     });
-    console.log(this.addGameForm);
   }
 
   get genreAttributesArray(): FormArray {

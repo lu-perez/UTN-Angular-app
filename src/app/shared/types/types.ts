@@ -10,6 +10,10 @@ export type GenreAttribute = {
   required: boolean;
 }
 
+export type GenreAttributeWithValue = GenreAttribute & {
+  attrValue: string | number | boolean;
+}
+
 export type Genre = {
   id: number;
   name: string;
@@ -26,7 +30,7 @@ export type Game = {
   storageRequirements: string;
   genreId: number;
   genre?: Genre;
-  genreAttributes: any[];
+  genreAttributes: GenreAttributeWithValue[];
   price: string;
   imageSrc?: string;
 }
