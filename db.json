@@ -139,7 +139,7 @@
         {
           "attrName": "hay sangre",
           "attrType": "boolean",
-          "attrRequired": true
+          "attrRequired": false
         },
         {
           "attrName": "terror level",

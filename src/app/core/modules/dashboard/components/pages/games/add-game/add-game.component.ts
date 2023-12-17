@@ -74,10 +74,12 @@ export class AddGameComponent implements OnInit, OnDestroy {
         attrValueValidators.push(Validators.pattern(/^\d+(\.\d{1,2})?$/));
       }
 
+      const defaultValue = attribute.attrType === ValueType.Boolean ? false : '';
+
       const control = this.fb.group({
         attrName: attribute.attrName,
         attrType: attribute.attrType,
-        attrValue: new FormControl('', attrValueValidators),
+        attrValue: new FormControl(defaultValue, attrValueValidators),
       });
 
       this.genreAttributesArray.push(control);
