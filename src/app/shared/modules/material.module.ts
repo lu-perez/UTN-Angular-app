@@ -25,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const material = [
   MatButtonModule,
@@ -52,6 +53,7 @@ const material = [
   MatSlideToggleModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatExpansionModule,
 ];
 
 @NgModule({

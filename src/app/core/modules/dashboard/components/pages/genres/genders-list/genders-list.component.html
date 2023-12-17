@@ -1,1 +1,32 @@
-<p>genders-list works!</p>
+<div class="mt-5">
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let genre of genres$ | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ genre.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Attributes: {{ genre.attributes.length }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <div mat-subheader>{{ genre.attributes.length ? 'Attributes' : 'No attributes' }}</div>
+        <div *ngFor="let attribute of genre.attributes; let i = index">
+          <mat-list-item>
+            <span matListItemTitle>{{ attribute.attrName }}</span>
+            <span matListItemLine>Type: {{ attribute.attrType }}</span>
+            <span matListItemLine>Required: {{ attribute.attrRequired }}</span>
+          </mat-list-item>
+          <mat-divider *ngIf="i < genre.attributes.length - 1"></mat-divider>
+        </div>
+      </mat-list>
+      <div class="actions">
+        <button mat-icon-button color="accent"
+          routerLink="/dashboard/genres/edit/{{genre.id}}"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="deleteGenre()"><mat-icon>delete</mat-icon></button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

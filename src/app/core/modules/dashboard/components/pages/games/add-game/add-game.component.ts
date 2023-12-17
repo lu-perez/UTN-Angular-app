@@ -55,7 +55,7 @@ export class AddGameComponent implements OnInit, OnDestroy {
     const selectedGenreId = this.addGameForm.get('genreId')?.value;
     const selectedGenre = this.genres.find((genre) => genre.id === selectedGenreId);
 
-    this.addGameForm.setControl('genreAttributes', this.fb.array([]));
+    this.addGameForm.setControl('genreAttributes', this.fb.array([])); // reset genreAttributes
 
     if (selectedGenre) {
       this.addGenreAttributesToForm(selectedGenre.attributes);
