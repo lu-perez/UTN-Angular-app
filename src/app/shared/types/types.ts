@@ -8,11 +8,12 @@ export type GenreAttribute = {
   attrName: string;
   attrType: ValueType;
   attrRequired: boolean;
+  attrValue?: string | number | boolean;
 }
 
-export type GenreAttributeWithValue = GenreAttribute & {
-  attrValue: string | number | boolean;
-}
+// export type GenreAttributeWithValue = GenreAttribute & {
+//   attrValue: string | number | boolean;
+// }
 
 export type Genre = {
   id: number;
@@ -30,7 +31,7 @@ export type Game = {
   storageRequirements: string;
   genreId: number;
   genre?: Genre;
-  genreAttributes: GenreAttributeWithValue[];
+  genreAttributes: GenreAttribute[];
   price: string;
   imageSrc?: string;
 }

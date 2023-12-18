@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { GamesService } from '../../../../services/games.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Game, Genre, GenreAttributeWithValue, ValueType } from 'src/app/shared/types/types';
+import { Game, Genre, GenreAttribute, ValueType } from 'src/app/shared/types/types';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GenresService } from '../../../../services/genres.service';
@@ -62,7 +62,7 @@ export class EditGameComponent implements OnInit, OnDestroy {
     });
 
     const gameGenreAttributes = this.game.genreAttributes || [];
-    this.addGenreAttributesToForm(gameGenreAttributes as GenreAttributeWithValue[]);
+    this.addGenreAttributesToForm(gameGenreAttributes);
   }
 
   onGenreChange(): void {
@@ -72,11 +72,11 @@ export class EditGameComponent implements OnInit, OnDestroy {
     this.editGameForm.setControl('genreAttributes', this.fb.array([])); // reset genreAttributes
 
     if (selectedGenre) {
-      this.addGenreAttributesToForm(selectedGenre.attributes as GenreAttributeWithValue[]);
+      this.addGenreAttributesToForm(selectedGenre.attributes);
     }
   }
 
-  private addGenreAttributesToForm(attributes: GenreAttributeWithValue[]): void {
+  private addGenreAttributesToForm(attributes: GenreAttribute[]): void {
     console.log(attributes);
     attributes.forEach((attribute) => {
       const attrValueValidators: ValidatorFn[] = [];
@@ -89,11 +89,13 @@ export class EditGameComponent implements OnInit, OnDestroy {
         attrValueValidators.push(Validators.pattern(/^\d+(\.\d{1,2})?$/));
       }
 
+      const attrValue = attribute.attrValue ? attribute.attrValue : null;
+
       const control = this.fb.group({
         attrName: attribute.attrName,
         attrType: attribute.attrType,
         attrRequired: attribute.attrRequired,
-        attrValue: new FormControl(attribute.attrValue, attrValueValidators),
+        attrValue: new FormControl(attrValue, attrValueValidators),
       });
 
       this.genreAttributesArray.push(control);

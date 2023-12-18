@@ -33,31 +33,33 @@
   ],
   "games": [
     {
-      "id": 1,
       "name": "Half Life",
       "cpuRequirements": "Intel Core i5",
       "memoryRequirements": "8GB RAM",
       "storageRequirements": "50GB",
       "genreId": 1,
       "price": 29.99,
-      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
+      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp",
+      "genreAttributes": [],
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Age Of Empires II",
       "cpuRequirements": "AMD Ryzen 7",
       "memoryRequirements": "16GB RAM",
       "storageRequirements": "100GB",
       "genreId": 2,
       "price": 49.99,
-      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg"
+      "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg",
+      "genreAttributes": [],
+      "id": 2
     },
     {
       "name": "Counter Strike GO",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genreId": 4,
+      "genreId": 3,
       "price": 39.99,
       "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg",
       "genreAttributes": [],
@@ -71,61 +73,8 @@
       "genreId": 1,
       "price": "40",
       "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg",
+      "genreAttributes": [],
       "id": 4
-    },
-    {
-      "name": "ASD",
-      "cpuRequirements": "ASD",
-      "memoryRequirements": "ASD",
-      "storageRequirements": "ASD",
-      "genreId": 2,
-      "price": "123",
-      "imageSrc": "",
-      "genreAttributes": [
-        {
-          "attrName": "for pros",
-          "attrType": "boolean",
-          "attrRequired": false,
-          "attrValue": true
-        },
-        {
-          "attrName": "description",
-          "attrType": "string",
-          "attrRequired": true,
-          "attrValue": "dasdad"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "adsadasd",
-      "cpuRequirements": "asdasdasda",
-      "memoryRequirements": "adadadsa",
-      "storageRequirements": "adadada",
-      "genreId": 1,
-      "price": "4234234234",
-      "imageSrc": "",
-      "genreAttributes": [
-        {
-          "attrName": "QQQQQ",
-          "attrType": "string",
-          "attrRequired": false,
-          "attrValue": ""
-        },
-        {
-          "attrName": "WWWW",
-          "attrType": "number",
-          "attrRequired": true,
-          "attrValue": "132"
-        },
-        {
-          "attrName": "Eeeeeee",
-          "attrType": "boolean",
-          "attrRequired": false,
-          "attrValue": true
-        }
-      ],
-      "id": 6
     }
   ],
   "dlcs": [
@@ -149,17 +98,17 @@
       "name": "Sci-Fi",
       "attributes": [
         {
-          "attrName": "QQQQQ",
+          "attrName": "Time travels",
           "attrType": "string",
           "attrRequired": false
         },
         {
-          "attrName": "WWWW",
+          "attrName": "Magic level",
           "attrType": "number",
           "attrRequired": true
         },
         {
-          "attrName": "Eeeeeee",
+          "attrName": "Futuristic",
           "attrType": "boolean",
           "attrRequired": false
         }
@@ -170,12 +119,12 @@
       "name": "Strategy",
       "attributes": [
         {
-          "attrName": "for pros",
+          "attrName": "Mental",
           "attrType": "boolean",
           "attrRequired": false
         },
         {
-          "attrName": "description",
+          "attrName": "Description",
           "attrType": "string",
           "attrRequired": true
         }
@@ -183,30 +132,9 @@
       "id": 2
     },
     {
-      "name": "Terror",
-      "attributes": [
-        {
-          "attrName": "hay sangre",
-          "attrType": "boolean",
-          "attrRequired": false
-        },
-        {
-          "attrName": "terror level",
-          "attrType": "number",
-          "attrRequired": true
-        },
-        {
-          "attrName": "oscuridad",
-          "attrType": "string",
-          "attrRequired": false
-        }
-      ],
-      "id": 3
-    },
-    {
       "name": "Shooter",
       "attributes": [],
-      "id": 4
+      "id": 3
     }
   ],
   "purchases": [
