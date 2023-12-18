@@ -58,14 +58,51 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label for="imageSrc">Image</mat-label>
+          <input matInput type="text" id="imageSrc" formControlName="imageSrc" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="auto">
           <mat-label for="genreId">Genre</mat-label>
-          <mat-select id="genreId" formControlName="genreId">
+          <mat-select id="genreId" formControlName="genreId" (selectionChange)="onGenreChange()">
             <mat-option *ngFor="let genre of genres" [value]="genre.id">
               {{ genre.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!editGameForm.valid">Update</button>
+
+        <div formArrayName="genreAttributes">
+          <div *ngFor="let control of genreAttributesArray.controls; let i = index">
+            <div formGroupName="{{ i }}" class="dynamic-fields">
+        
+              <ng-container *ngIf="control.value.attrType === ValueType.Boolean; else inputField">
+                <mat-form-field floatLabel="always" appearance="outline">
+                  <mat-label>{{ control.value.attrName }}</mat-label>
+                  <mat-slide-toggle formControlName="attrValue"></mat-slide-toggle>
+                  <textarea matInput [ngStyle]="{'display':'none'}"></textarea>
+                </mat-form-field>
+              </ng-container>
+        
+              <ng-template #inputField>
+                <mat-form-field appearance="outline" floatLabel="auto">
+                  <mat-label>{{ control.value.attrName }}</mat-label>
+                  <input matInput [type]="control.value.attrType" formControlName="attrValue" />
+                  <mat-error *ngIf="control.get('attrValue')?.invalid">
+                    Invalid {{ control.value.attrType }} value. Please enter a valid {{ control.value.attrType }}.
+                  </mat-error>
+                </mat-form-field>
+              </ng-template>
+        
+            </div>
+          </div>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!editGameForm.valid"
+        >Update</button>
 
       </form>
     </mat-card-content>

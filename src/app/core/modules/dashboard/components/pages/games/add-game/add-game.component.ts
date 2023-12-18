@@ -79,6 +79,7 @@ export class AddGameComponent implements OnInit, OnDestroy {
       const control = this.fb.group({
         attrName: attribute.attrName,
         attrType: attribute.attrType,
+        attrRequired: attribute.attrRequired,
         attrValue: new FormControl(defaultValue, attrValueValidators),
       });
 

@@ -53,14 +53,15 @@
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg"
     },
     {
-      "id": 3,
       "name": "Counter Strike GO",
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
       "genreId": 4,
       "price": 39.99,
-      "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg"
+      "imageSrc": "https://www.clarin.com/img/2021/11/25/dQJKs5qYm_2000x1500__1.jpg",
+      "genreAttributes": [],
+      "id": 3
     },
     {
       "name": "Minecraft",
@@ -73,14 +74,58 @@
       "id": 4
     },
     {
-      "name": "asdasd",
-      "cpuRequirements": "aaaaa",
-      "memoryRequirements": "aaaaa",
-      "storageRequirements": "aaaaaaa",
-      "genreId": 1,
+      "name": "ASD",
+      "cpuRequirements": "ASD",
+      "memoryRequirements": "ASD",
+      "storageRequirements": "ASD",
+      "genreId": 2,
       "price": "123",
       "imageSrc": "",
+      "genreAttributes": [
+        {
+          "attrName": "for pros",
+          "attrType": "boolean",
+          "attrRequired": false,
+          "attrValue": true
+        },
+        {
+          "attrName": "description",
+          "attrType": "string",
+          "attrRequired": true,
+          "attrValue": "dasdad"
+        }
+      ],
       "id": 5
+    },
+    {
+      "name": "adsadasd",
+      "cpuRequirements": "asdasdasda",
+      "memoryRequirements": "adadadsa",
+      "storageRequirements": "adadada",
+      "genreId": 1,
+      "price": "4234234234",
+      "imageSrc": "",
+      "genreAttributes": [
+        {
+          "attrName": "QQQQQ",
+          "attrType": "string",
+          "attrRequired": false,
+          "attrValue": ""
+        },
+        {
+          "attrName": "WWWW",
+          "attrType": "number",
+          "attrRequired": true,
+          "attrValue": "132"
+        },
+        {
+          "attrName": "Eeeeeee",
+          "attrType": "boolean",
+          "attrRequired": false,
+          "attrValue": true
+        }
+      ],
+      "id": 6
     }
   ],
   "dlcs": [
@@ -123,7 +168,18 @@
     },
     {
       "name": "Strategy",
-      "attributes": [],
+      "attributes": [
+        {
+          "attrName": "for pros",
+          "attrType": "boolean",
+          "attrRequired": false
+        },
+        {
+          "attrName": "description",
+          "attrType": "string",
+          "attrRequired": true
+        }
+      ],
       "id": 2
     },
     {
