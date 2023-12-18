@@ -85,6 +85,7 @@
                   <mat-label>{{ control.value.attrName }}</mat-label>
                   <mat-slide-toggle formControlName="attrValue"></mat-slide-toggle>
                   <textarea matInput [ngStyle]="{'display':'none'}"></textarea>
+                  <mat-icon matSuffix matTooltip="Genre attribute">snowing</mat-icon>
                 </mat-form-field>
               </ng-container>
 
@@ -92,6 +93,7 @@
                 <mat-form-field appearance="outline" floatLabel="auto">
                   <mat-label>{{ control.value.attrName }}</mat-label>
                   <input matInput [type]="control.value.attrType" formControlName="attrValue" />
+                  <mat-icon matSuffix matTooltip="Genre attribute">snowing</mat-icon>
                   <mat-error *ngIf="control.get('attrValue')?.invalid">
                     Invalid {{ control.value.attrType }} value. Please enter a valid {{ control.value.attrType }}.
                   </mat-error>

@@ -77,7 +77,6 @@ export class EditGameComponent implements OnInit, OnDestroy {
   }
 
   private addGenreAttributesToForm(attributes: GenreAttribute[]): void {
-    console.log(attributes);
     attributes.forEach((attribute) => {
       const attrValueValidators: ValidatorFn[] = [];
 

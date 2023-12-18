@@ -40,7 +40,26 @@
       "genreId": 1,
       "price": 29.99,
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/07/half-life-ign-1638907041170.jpg?width=300&crop=1%3A1%2Csmart&auto=webp",
-      "genreAttributes": [],
+      "genreAttributes": [
+        {
+          "attrName": "Time travels",
+          "attrType": "string",
+          "attrRequired": false,
+          "attrValue": "To 2040"
+        },
+        {
+          "attrName": "Magic level",
+          "attrType": "number",
+          "attrRequired": true,
+          "attrValue": "20"
+        },
+        {
+          "attrName": "Futuristic",
+          "attrType": "boolean",
+          "attrRequired": false,
+          "attrValue": true
+        }
+      ],
       "id": 1
     },
     {
@@ -51,7 +70,20 @@
       "genreId": 2,
       "price": 49.99,
       "imageSrc": "https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-2-definitive-edition-button-fin-1640816883650.jpg",
-      "genreAttributes": [],
+      "genreAttributes": [
+        {
+          "attrName": "Mental",
+          "attrType": "boolean",
+          "attrRequired": false,
+          "attrValue": true
+        },
+        {
+          "attrName": "Description",
+          "attrType": "string",
+          "attrRequired": true,
+          "attrValue": "Historic game"
+        }
+      ],
       "id": 2
     },
     {
@@ -70,10 +102,23 @@
       "cpuRequirements": "Intel Core i7",
       "memoryRequirements": "12GB RAM",
       "storageRequirements": "80GB",
-      "genreId": 1,
+      "genreId": 2,
       "price": "40",
       "imageSrc": "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.mojang.minecraftpe.jpg",
-      "genreAttributes": [],
+      "genreAttributes": [
+        {
+          "attrName": "Mental",
+          "attrType": "boolean",
+          "attrRequired": false,
+          "attrValue": null
+        },
+        {
+          "attrName": "Description",
+          "attrType": "string",
+          "attrRequired": true,
+          "attrValue": "Blocks"
+        }
+      ],
       "id": 4
     }
   ],

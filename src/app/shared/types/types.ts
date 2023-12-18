@@ -11,10 +11,6 @@ export type GenreAttribute = {
   attrValue?: string | number | boolean;
 }
 
-// export type GenreAttributeWithValue = GenreAttribute & {
-//   attrValue: string | number | boolean;
-// }
-
 export type Genre = {
   id: number;
   name: string;
